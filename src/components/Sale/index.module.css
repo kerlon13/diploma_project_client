@@ -8,9 +8,16 @@
     justify-content: space-between;
 }
 .sale_title {
-    margin-top: 130px;
+    margin-top: 200px;
     color: #FFF;
     font-size: 80px;
+    font-style: normal;
+    font-weight: 700;
+}
+.sale_text {
+    margin-top: 20px;
+    color: #FFF;
+    font-size: 63px;
     font-style: normal;
     font-weight: 700;
 }

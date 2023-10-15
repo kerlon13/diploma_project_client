@@ -8,8 +8,8 @@ function Sale () {
             <div className={styles.sale_wrapper}>
                 <div>
                     <h2 className={styles.sale_title}>Sale</h2>
-                    <p>New season</p>
-                    <Button>Sale</Button>
+                    <p className={styles.sale_text}>New season</p>
+                    <Button variant='contained'>Sale</Button>
                 </div>
                 <div>
                     <img src={saleImg} alt='sale image'/>
