@@ -4,7 +4,7 @@ export const getCategories = createAsyncThunk(
     'categories/getCategories',
     async function(_, {rejectWithValue}) {
         try {
-            const response = await fetch("http://localhost:3333/categories/all");
+            const response = await fetch("http://localhost:3333/categories/all?_limit=4");
 
             if(!response.ok) {
                 throw new Error("Server error");

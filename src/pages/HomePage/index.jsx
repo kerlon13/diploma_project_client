@@ -1,4 +1,4 @@
-import CategoriesContainer from '../../components/CategoriesContainer';
+import Catalog from '../../components/Catalog';
 import Sale from '../../components/Sale';
 import styles from './index.module.css';
 
@@ -7,7 +7,7 @@ function Homepage() {
     return (
         <>
             <Sale />
-            <CategoriesContainer />
+            <Catalog />
         </>
     )
 };
