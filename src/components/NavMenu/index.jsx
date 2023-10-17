@@ -1,6 +1,6 @@
 import styles from './index.module.css';
-import mainIcon from '../../UI/icons/mainIcon.svg';
-import cartImg from '../../UI/icons/shoppingBag.svg';
+import mainIcon from '../../assets/icons/mainIcon.svg';
+import cartImg from '../../assets/icons/shoppingBag.svg';
 import { Button } from '@mui/material';
 import { Link } from 'react-router-dom';
 

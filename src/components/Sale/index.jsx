@@ -1,6 +1,6 @@
 import { Button } from '@mui/material';
 import styles from './index.module.css';
-import saleImg from '../../UI/images/saleImg.svg';
+import saleImg from '../../assets/images/saleImg.svg';
 
 function Sale () {
     return (
@@ -9,7 +9,12 @@ function Sale () {
                 <div>
                     <h2 className={styles.sale_title}>Sale</h2>
                     <p className={styles.sale_text}>New season</p>
-                    <Button variant='contained'>Sale</Button>
+                    <Button
+                        style={{background: "white", borderRadius: "13px", color: "black", padding: "25px 50px"}}
+                        variant='contained'
+                    >
+                        Sale
+                    </Button>
                 </div>
                 <div>
                     <img src={saleImg} alt='sale image'/>
