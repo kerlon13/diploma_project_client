@@ -1,0 +1,25 @@
+.discount {
+    background: linear-gradient(263deg, #393 -0.43%, #006300 104.36%);
+}
+.discount_wrapper {
+    display: flex;
+    padding: 27px 90px;
+}
+.img_container {
+    width: 50%;
+}
+.discount_title {
+    color: white;
+    font-size: 90px;
+}
+.discount_text {
+    color: white;
+    font-size: 50px;
+    margin-bottom: 45px;
+}
+.phone_input {
+    width: 400px;
+    font-size: 20px;
+}
+
+

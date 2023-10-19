@@ -6,8 +6,15 @@ function Catalog () {
     return(
         <section>
             <div className={styles.catalog_wrapper}>
-                <h3>Catalog</h3>
-                <Button variant='contained'>All categories </Button>
+                <div className={styles.catalog_btn_container}>
+                    <h3>Catalog</h3>
+                    <Button 
+                        style={{color: "grey", backgroundColor: "white", border: "1px solid grey"}}
+                        variant='contained'
+                    >
+                        All categories 
+                    </Button>
+                </div>
                 <CategoriesContainer />
             </div>
         </section>

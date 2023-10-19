@@ -1,4 +1,5 @@
 import Catalog from '../../components/Catalog';
+import Discount from '../../components/Discount';
 import Sale from '../../components/Sale';
 import styles from './index.module.css';
 
@@ -8,6 +9,7 @@ function Homepage() {
         <>
             <Sale />
             <Catalog />
+            <Discount />
         </>
     )
 };
