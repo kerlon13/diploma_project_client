@@ -1,6 +1,7 @@
 import Catalog from '../../components/Catalog';
 import Discount from '../../components/Discount';
 import Sale from '../../components/Sale';
+import SalesSection from '../../components/SalesSection';
 import styles from './index.module.css';
 
 function Homepage() {
@@ -10,6 +11,7 @@ function Homepage() {
             <Sale />
             <Catalog />
             <Discount />
+            <SalesSection />
         </>
     )
 };

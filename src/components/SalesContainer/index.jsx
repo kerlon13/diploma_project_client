@@ -1,16 +1,20 @@
 import { useSelector } from "react-redux";
-import CategoryCard from "../CategoryCard";
-import styles from './index.module.css';
 import { Skeleton } from "@mui/material";
+import SaleCard from "../SaleCard";
+import styles from "./index.module.css"
 
-function CategoriesContainer () {
-    const { categoriesData, status } = useSelector((state) => state.categories);
-
+function SalesContainer () {
+    const { productsData, status } = useSelector((state) => state.products);
+    
+    const discountProducts = productsData.filter(
+        (product) => product.discont_price !== null
+    );
+        console.log(discountProducts);
     return (
-        <div className={styles.categories_container}>
+        <div className={styles.sales_container}>
             {status !== 'loading' ? (
-                categoriesData.slice(0, 4).map((category) => (
-                    <CategoryCard key={category.id} {...category} />
+                discountProducts.slice(0, 4).map((product) => (
+                    <SaleCard key={product.id} {...product} />
                 ))
             ) : (
                 
@@ -25,4 +29,4 @@ function CategoriesContainer () {
     )
 }
 
-export default CategoriesContainer;
+export default SalesContainer;

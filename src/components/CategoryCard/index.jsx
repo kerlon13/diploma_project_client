@@ -1,7 +1,8 @@
 import { Card, CardActionArea, CardContent, CardMedia } from "@mui/material";
+import { BASE_URL } from "../../utils";
 
 function CategoryCard ({title, image}) {
-    const url = `http://localhost:3333${image}`
+    const url = `${BASE_URL}${image}`
 
     return (
         <Card sx={{ maxWidth: "23%" }}>

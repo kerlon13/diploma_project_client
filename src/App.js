@@ -8,6 +8,7 @@ import AllSales from './pages/Allsales';
 import Cart from './pages/Cart';
 import { useDispatch} from 'react-redux';
 import { getCategories } from './core/redux/store/slices/categoriesSlice';
+import { getProducts } from './core/redux/store/slices/productsSlice';
 
 function App() {
   
@@ -15,6 +16,7 @@ function App() {
 
   useEffect(() => {
     dispatch(getCategories());
+    dispatch(getProducts());
   }, []);
 
   return (
