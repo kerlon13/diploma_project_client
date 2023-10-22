@@ -9,6 +9,7 @@ import Cart from './pages/Cart';
 import { useDispatch} from 'react-redux';
 import { getCategories } from './core/redux/store/slices/categoriesSlice';
 import { getProducts } from './core/redux/store/slices/productsSlice';
+import Footer from './components/Footer';
 
 function App() {
   
@@ -29,6 +30,7 @@ function App() {
         <Route path='/cart' element={<Cart />}/>
         
       </Routes>
+      <Footer />
     </div>
   );
 }
