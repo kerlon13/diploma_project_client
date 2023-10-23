@@ -26,7 +26,7 @@ const setError = (state, action) => {
 const singleCategorySlice = createSlice({
     name: "category",
     initialState: {
-        singleCategoryData: [],
+        singleCategoryData: {},
         status: null,
         error: null,
     },

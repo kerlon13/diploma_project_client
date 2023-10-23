@@ -1,6 +1,5 @@
 .sales_container {
-    display: flex;
+    display: grid;
     justify-content: space-between;
-    flex-wrap: wrap;
-    align-items: center;
+    grid-template-columns: repeat(4, 23%);
 }

@@ -6,7 +6,7 @@ function ProductCard ({discont_price, image, price, title}) {
     const url = `${BASE_URL}${image}`;
 
     return (
-        <Card sx={{ width: "23%" , height: 350}}>
+        <Card sx={{ width: "100 %" , height: 350}}>
             <CardActionArea>
                 <CardMedia
                     component="img"
