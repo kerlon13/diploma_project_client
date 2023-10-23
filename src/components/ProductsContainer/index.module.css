@@ -1,13 +1,8 @@
-.category_container {
-    width: 96%;
-    margin: 0 auto;
-}
-
 .category_wrapper {
     display: grid;
     justify-content: space-between;
     grid-template-columns: repeat(4, 23%); 
-    grid-gap: 20px;
+    grid-gap: 30px;
 }
 
 h3{
