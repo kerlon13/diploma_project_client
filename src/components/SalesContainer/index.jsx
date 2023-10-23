@@ -1,7 +1,7 @@
 import { useSelector } from "react-redux";
 import { Skeleton } from "@mui/material";
-import SaleCard from "../SaleCard";
 import styles from "./index.module.css"
+import ProductCard from "../ProductCard";
 
 function SalesContainer () {
     const { productsData, status } = useSelector((state) => state.products);
@@ -9,12 +9,12 @@ function SalesContainer () {
     const discountProducts = productsData.filter(
         (product) => product.discont_price !== null
     );
-        console.log(discountProducts);
+
     return (
         <div className={styles.sales_container}>
             {status !== 'loading' ? (
                 discountProducts.slice(0, 4).map((product) => (
-                    <SaleCard key={product.id} {...product} />
+                    <ProductCard key={product.id} {...product} />
                 ))
             ) : (
                 

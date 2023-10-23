@@ -2,7 +2,7 @@ import { Card, CardActionArea, CardContent, CardMedia } from "@mui/material";
 import { BASE_URL } from "../../utils";
 import styles from "./index.module.css";
 
-function SaleCard ({discont_price, image, price, title}) {
+function ProductCard ({discont_price, image, price, title}) {
     const url = `${BASE_URL}${image}`;
 
     return (
@@ -16,9 +16,9 @@ function SaleCard ({discont_price, image, price, title}) {
                 />
                 <CardContent>
                     <div className={styles.price_container}>
-                        <p className={styles.discount_price}>{discont_price}$</p>
-                        <p className={styles.price}>{price}$</p>
-                        <p className={styles.amount_sale}>-{Math.round(100 - discont_price / price * 100)} %</p>
+                        <p className={styles.discount_price}>{discont_price ? discont_price : price}$</p>
+                        {discont_price ? <p className={styles.price}>{price}$</p> : null}
+                        {discont_price ? <p className={styles.amount_sale}>-{Math.round(100 - discont_price / price * 100)} %</p> : null}
                     </div>
                     <p className={styles.description}>{title}</p>
                 </CardContent>
@@ -27,4 +27,4 @@ function SaleCard ({discont_price, image, price, title}) {
     )
 }
 
-export default SaleCard;
+export default ProductCard;

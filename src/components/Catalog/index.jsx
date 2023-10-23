@@ -1,21 +1,26 @@
 import { Button } from '@mui/material';
 import styles from './index.module.css';
 import CategoriesContainer from '../CategoriesContainer';
+import { useRef } from 'react';
+import { Link } from 'react-router-dom';
 
 function Catalog () {
+    
     return(
-        <section>
+        <section >
             <div className={styles.catalog_wrapper}>
                 <div className={styles.catalog_btn_container}>
                     <h3>Catalog</h3>
-                    <Button 
-                        style={{color: "grey", backgroundColor: "white", border: "1px solid grey"}}
-                        variant='contained'
-                    >
-                        All categories 
-                    </Button>
+                    <Link to='/categories'>
+                        <Button 
+                            style={{color: "grey", backgroundColor: "white", border: "1px solid grey"}}
+                            variant='contained'
+                        >
+                            All categories 
+                        </Button>
+                    </Link>
                 </div>
-                <CategoriesContainer />
+                <CategoriesContainer isAllCategories={false} />
             </div>
         </section>
     )

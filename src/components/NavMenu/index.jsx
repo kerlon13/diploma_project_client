@@ -11,7 +11,12 @@ function NavMenu() {
             <div className={styles.nav_wrapper}>
                 <div className={styles.icon_container}>
                     <img src={mainIcon} alt='main icon'/>
-                    <Button style={{background: '#393', borderRadius: '5px'}} variant='contained' >Catalog</Button>
+                    <Button 
+                        style={{background: '#393', borderRadius: '5px'}} 
+                        variant='contained'
+                    >
+                        Catalog
+                    </Button>
                 </div>
                 <div className={styles.links_container}>
                     <div className={styles.links_of_pages}>

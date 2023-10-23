@@ -1,10 +1,10 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
-export const getCategories = createAsyncThunk(
-    'categories/getCategories',
-    async function( _, {rejectWithValue}) {
+export const getCategoryProducts = createAsyncThunk(
+    'category/getCategoryProducts',
+    async function( id , {rejectWithValue}) {
         try {
-            const response = await fetch("http://localhost:3333/categories/all");
+            const response = await fetch(`http://localhost:3333/categories/${id}`);
 
             if(!response.ok) {
                 throw new Error("Server error");
@@ -23,25 +23,25 @@ const setError = (state, action) => {
     state.error = action.payload;
   };
 
-const categoriesSlice = createSlice({
-    name: "categories",
+const singleCategorySlice = createSlice({
+    name: "category",
     initialState: {
-        categoriesData: [],
+        singleCategoryData: [],
         status: null,
         error: null,
     },
     extraReducers: {
-        [getCategories.pending]: (state) => {
+        [getCategoryProducts.pending]: (state) => {
             state.status = "loading";
             state.error = null;
         },
-        [getCategories.fulfilled]: (state, action) => {
+        [getCategoryProducts.fulfilled]: (state, action) => {
             state.status = "resolved";
-            state.categoriesData = action.payload;
+            state.singleCategoryData = action.payload;
             state.error = null;
         },
-        [getCategories.rejected]: setError,
+        [getCategoryProducts.rejected]: setError,
     }
 });
 
-export default categoriesSlice.reducer;
+export default singleCategorySlice.reducer;

@@ -3,13 +3,14 @@ import CategoryCard from "../CategoryCard";
 import styles from './index.module.css';
 import { Skeleton } from "@mui/material";
 
-function CategoriesContainer () {
+function CategoriesContainer ({isAllCategories}) {
     const { categoriesData, status } = useSelector((state) => state.categories);
+    const displayedCategories = isAllCategories ? categoriesData : categoriesData.slice(0, 4);
 
     return (
         <div className={styles.categories_container}>
             {status !== 'loading' ? (
-                categoriesData.slice(0, 4).map((category) => (
+                displayedCategories.map((category) => (
                     <CategoryCard key={category.id} {...category} />
                 ))
             ) : (
