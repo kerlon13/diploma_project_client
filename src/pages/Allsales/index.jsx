@@ -1,6 +1,7 @@
 import { useSelector } from 'react-redux';
 import styles from './index.module.css';
 import ProductsContainer from '../../components/ProductsContainer';
+import InputPriceSelection from '../../components/InputPriceSelection';
 
 function AllSales() {
     const { productsData, status } = useSelector((state) => state.products);
@@ -12,6 +13,7 @@ function AllSales() {
     return (
         <div className={styles.AllSales_wrapper}>
             <h3 className={styles.sales_title}>Products with sale</h3>
+            <InputPriceSelection />
             <ProductsContainer status={status} products={discountProducts}/>
         </div>
     )

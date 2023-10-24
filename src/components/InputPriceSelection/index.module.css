@@ -1,0 +1,9 @@
+.input_wrapper {
+    margin: 80px 0 35px;
+    display: flex;
+    align-items: center;
+}
+.select_wrapper {
+    display: flex;
+    align-items: center;
+}
