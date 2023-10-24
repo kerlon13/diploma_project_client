@@ -1,4 +1,3 @@
-import { useSelector } from "react-redux";
 import styles from './index.module.css';
 import ProductCard from "../ProductCard";
 import { Skeleton } from "@mui/material";
@@ -6,9 +5,9 @@ import { Skeleton } from "@mui/material";
 function ProductsContainer ({products, status}) {
 
     return (
-        <div className={styles.category_container}>
+        <div className={styles.products_container}>
             
-        <div className={styles.category_wrapper}>
+        <div className={styles.products_wrapper}>
             {status !== 'loading' && products ? (
                 products.map((product) => (
                     <ProductCard key={product.id} {...product} />

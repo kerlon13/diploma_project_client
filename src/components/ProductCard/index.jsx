@@ -1,19 +1,36 @@
-import { Card, CardActionArea, CardContent, CardMedia } from "@mui/material";
+import { Button, Card, CardActionArea, CardContent, CardMedia } from "@mui/material";
 import { BASE_URL } from "../../utils";
 import styles from "./index.module.css";
+import { useState } from "react";
 
 function ProductCard ({discont_price, image, price, title}) {
     const url = `${BASE_URL}${image}`;
+    const [isHovered, setIsHovered] = useState(false);
 
     return (
-        <Card sx={{ width: "100 %" , height: 350}}>
+        <Card 
+            sx={{ width: "100 %" , height: 500}}
+            onMouseEnter={() => setIsHovered(true)}
+            onMouseLeave={() => setIsHovered(false)}
+            >
             <CardActionArea>
-                <CardMedia
+            <CardMedia
                     component="img"
                     image={url}
                     alt={title}
-                    sx={{maxHeight: 250}}
+                    sx={{ height: 400, objectFit: "cover"}}
                 />
+                {/* {isHovered && (
+                    <div className={styles.addToCartContainer}>
+                        <Button
+                            variant="contained"
+                            color="primary"
+                            className={styles.addToCartButton}
+                        >
+                            Add to cart
+                        </Button>
+                    </div>
+                )} */}
                 <CardContent>
                     <div className={styles.price_container}>
                         <p className={styles.discount_price}>{discont_price ? discont_price : price}$</p>

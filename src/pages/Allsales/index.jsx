@@ -11,7 +11,7 @@ function AllSales() {
 
     return (
         <div className={styles.AllSales_wrapper}>
-            <h3>All sales</h3>
+            <h3 className={styles.sales_title}>Products with sale</h3>
             <ProductsContainer status={status} products={discountProducts}/>
         </div>
     )

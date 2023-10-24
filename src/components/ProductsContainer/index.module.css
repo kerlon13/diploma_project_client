@@ -1,11 +1,6 @@
-.category_wrapper {
+.products_wrapper {
     display: grid;
     justify-content: space-between;
     grid-template-columns: repeat(4, 23%); 
     grid-gap: 30px;
-}
-
-h3{
-    margin-bottom: 40px;
-    font-size: 40px;
 }

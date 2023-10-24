@@ -1,5 +1,5 @@
-import React, { useEffect, useRef } from 'react';
-import { Route, Routes, useNavigate } from 'react-router-dom';
+import React, { useEffect} from 'react';
+import { Route, Routes} from 'react-router-dom';
 import './App.css';
 import NavMenu from './components/NavMenu';
 import Homepage from './pages/HomePage';
@@ -38,3 +38,10 @@ function App() {
 }
 
 export default App;
+
+
+
+
+
+
+
