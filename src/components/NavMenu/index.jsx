@@ -4,7 +4,14 @@ import cartImg from '../../assets/icons/shoppingBag.svg';
 import { Button } from '@mui/material';
 import { Link } from 'react-router-dom';
 
-function NavMenu() {
+function NavMenu({catalogRef}) {
+    
+    const scrollToCatalog = () => {
+        
+        if (catalogRef.current) {
+            catalogRef.current.scrollIntoView({ behavior: 'smooth' });
+        }
+    };
 
     return (
         <nav>
@@ -14,6 +21,7 @@ function NavMenu() {
                     <Button 
                         style={{background: '#393', borderRadius: '5px'}} 
                         variant='contained'
+                        onClick={scrollToCatalog}
                     >
                         Catalog
                     </Button>

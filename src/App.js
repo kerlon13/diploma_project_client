@@ -12,6 +12,7 @@ import { getProducts } from './core/redux/store/slices/productsSlice';
 import Footer from './components/Footer';
 import Categories from './pages/Categories';
 import SingleCategory from './pages/SingleCategory';
+import { useRef } from 'react';
 
 function App() {
   const dispatch = useDispatch();
@@ -21,11 +22,13 @@ function App() {
     dispatch(getProducts());
   }, []);
 
+  const catalogRef = useRef();
+
   return (
     <div className="App">
-      <NavMenu />
+      <NavMenu catalogRef={catalogRef}/>
       <Routes>
-        <Route path='/' element={<Homepage />}/>
+        <Route path='/' element={<Homepage catalogRef={catalogRef} />}/>
         <Route path='/allProducts' element={<AllProducts />} />
         <Route path='/allSales' element={<AllSales />} />
         <Route path='/cart' element={<Cart />}/>

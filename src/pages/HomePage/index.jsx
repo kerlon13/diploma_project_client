@@ -4,12 +4,12 @@ import Sale from '../../components/Sale';
 import SalesSection from '../../components/SalesSection';
 import styles from './index.module.css';
 
-function Homepage() {
-
+function Homepage({catalogRef}) {
+    
     return (
         <>
             <Sale />
-            <Catalog />
+            <Catalog catalogRef={catalogRef} />
             <Discount />
             <SalesSection />
         </>

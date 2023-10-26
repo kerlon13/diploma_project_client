@@ -35,7 +35,7 @@ function ProductCard ({discont_price, image, price, title}) {
                     <div className={styles.price_container}>
                         <p className={styles.discount_price}>{discont_price ? discont_price : price}$</p>
                         {discont_price ? <p className={styles.price}>{price}$</p> : null}
-                        {discont_price ? <p className={styles.amount_sale}>-{Math.round(100 - discont_price / price * 100)} %</p> : null}
+                        {discont_price ? <p className={styles.amount_sale}>- {Math.round(100 - discont_price / price * 100)} %</p> : null}
                     </div>
                     <p className={styles.description}>{title}</p>
                 </CardContent>

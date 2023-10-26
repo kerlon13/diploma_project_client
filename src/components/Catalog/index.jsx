@@ -4,11 +4,12 @@ import CategoriesContainer from '../CategoriesContainer';
 import { useRef } from 'react';
 import { Link } from 'react-router-dom';
 
-function Catalog () {
+function Catalog ({catalogRef}) {
+    console.log(catalogRef);
     
     return(
         <section >
-            <div className={styles.catalog_wrapper}>
+            <div className={styles.catalog_wrapper} ref={catalogRef}>
                 <div className={styles.catalog_btn_container}>
                     <h3>Catalog</h3>
                     <Link to='/categories'>
