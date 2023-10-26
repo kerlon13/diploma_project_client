@@ -2,7 +2,14 @@ import { Button } from '@mui/material';
 import styles from './index.module.css';
 import saleImg from '../../assets/images/saleImg.svg';
 
-function Sale () {
+function Sale ({saleRef}) {
+
+    const scrollToDiscount = () => {
+        if (saleRef.current) {
+            saleRef.current.scrollIntoView({ behavior: 'smooth' });
+          }
+    };
+
     return (
         <section className={styles.sale_section}>
             <div className={styles.sale_wrapper}>
@@ -12,6 +19,7 @@ function Sale () {
                     <Button
                         style={{background: "white", borderRadius: "13px", color: "black", padding: "25px 50px"}}
                         variant='contained'
+                        onClick={scrollToDiscount}
                     >
                         Sale
                     </Button>

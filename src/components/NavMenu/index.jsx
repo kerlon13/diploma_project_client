@@ -2,15 +2,16 @@ import styles from './index.module.css';
 import mainIcon from '../../assets/icons/mainIcon.svg';
 import cartImg from '../../assets/icons/shoppingBag.svg';
 import { Button } from '@mui/material';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
-function NavMenu({catalogRef}) {
-    
+function NavMenu({catalogRef, location}) {
+    const navigate = useNavigate();
+   
     const scrollToCatalog = () => {
-        
+        navigate('/');
         if (catalogRef.current) {
             catalogRef.current.scrollIntoView({ behavior: 'smooth' });
-        }
+          }
     };
 
     return (
@@ -18,6 +19,7 @@ function NavMenu({catalogRef}) {
             <div className={styles.nav_wrapper}>
                 <div className={styles.icon_container}>
                     <img src={mainIcon} alt='main icon'/>
+                    <Link to='/'>
                     <Button 
                         style={{background: '#393', borderRadius: '5px'}} 
                         variant='contained'
@@ -25,6 +27,7 @@ function NavMenu({catalogRef}) {
                     >
                         Catalog
                     </Button>
+                    </Link>
                 </div>
                 <div className={styles.links_container}>
                     <div className={styles.links_of_pages}>

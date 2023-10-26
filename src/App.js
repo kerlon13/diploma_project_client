@@ -22,13 +22,14 @@ function App() {
     dispatch(getProducts());
   }, []);
 
-  const catalogRef = useRef();
+  const catalogRef = useRef(null);
+  const saleRef = useRef(null);
 
   return (
     <div className="App">
-      <NavMenu catalogRef={catalogRef}/>
+      <NavMenu catalogRef={catalogRef} />
       <Routes>
-        <Route path='/' element={<Homepage catalogRef={catalogRef} />}/>
+        <Route path='/' element={<Homepage catalogRef={catalogRef} saleRef={saleRef}/>}/>
         <Route path='/allProducts' element={<AllProducts />} />
         <Route path='/allSales' element={<AllSales />} />
         <Route path='/cart' element={<Cart />}/>

@@ -5,13 +5,13 @@ import { useState } from 'react';
 import 'react-international-phone/style.css';
 import { Button } from '@mui/material';
 
-function Discount () {
+function Discount ({saleRef}) {
 
     const [phone, setPhone] = useState('');
 
     return (
         <section className={styles.discount}>
-            <div className={styles.discount_wrapper}>
+            <div className={styles.discount_wrapper} ref={saleRef}>
                 <div className={styles.img_container}>
                     <img src={discountImg} alt='Discount image'/>
                 </div>
