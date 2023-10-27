@@ -2,9 +2,9 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
 export const getProducts = createAsyncThunk(
     'products/getProducts',
-    async function(_, {rejectWithValue}) {
+    async function(product_id = 'all', {rejectWithValue}) {
         try {
-            const response = await fetch("http://localhost:3333/products/all");
+            const response = await fetch(`http://localhost:3333/products/${product_id}`);
 
             if(!response.ok) {
                 throw new Error("Server error");
