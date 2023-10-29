@@ -24,7 +24,6 @@ function AllProducts() {
   };
 
   const handleSortChange = (newSortOption) => {
-    console.log(newSortOption.target.value);
     dispatch(setSortingMethod(newSortOption.target.value));
   };
 
