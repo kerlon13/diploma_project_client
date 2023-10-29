@@ -29,6 +29,16 @@ const productsSlice = createSlice({
         productsData: [],
         status: null,
         error: null,
+        minPrice: '',
+        maxPrice: '',
+    },
+    reducers:{
+        setMinPrice: (state, action) => {
+            state.minPrice = action.payload;
+        },
+        setMaxPrice: (state, action) => {
+            state.maxPrice = action.payload;
+        },
     },
     extraReducers: {
         [getProducts.pending]: (state) => {
@@ -44,4 +54,5 @@ const productsSlice = createSlice({
     }
 });
 
+export const { setMinPrice, setMaxPrice } = productsSlice.actions;
 export default productsSlice.reducer;

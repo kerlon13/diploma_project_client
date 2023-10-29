@@ -1,4 +1,3 @@
-import React, { useState } from 'react';
 import TextField from '@mui/material/TextField';
 import Checkbox from '@mui/material/Checkbox';
 import FormControlLabel from '@mui/material/FormControlLabel';
@@ -7,49 +6,47 @@ import MenuItem from '@mui/material/MenuItem';
 import styles from './index.module.css';
 import { InputLabel } from '@mui/material';
 
-function InputPriceSelection({isDiscount, discount, handleDiscountChange, sortOption, handleSortChange}) {
-  const [from, setFrom] = useState('');
-  const [to, setTo] = useState('');
-  
-  // const [pageSortOption, setPageSortOption] = useState(sortOption);
-
-  const handleFromChange = (event) => {
-    setFrom(event.target.value);
-  };
-
-  const handleToChange = (event) => {
-    setTo(event.target.value);
-  };
-
-  // const handleSortChange = (event) => {
-  //   setPageSortOption(event.target.value);
-  // };
+function InputPriceSelection({
+  isDiscount, 
+  discount, 
+  handleDiscountChange, 
+  sortOption, 
+  handleSortChange, 
+  handleMinPrice, 
+  handleMaxPrice, 
+  minPrice, 
+  maxPrice
+}) {
 
   return (
     <div className={styles.input_wrapper}>
-      <InputLabel>Price</InputLabel>
+      <InputLabel sx={{fontWeight:"bold", color:"black", fontSize: "20px", marginRight:"15px"}}>Price</InputLabel>
       <TextField
+        sx={{width:"100px", marginRight:"15px"}}
         label="From"
         type="number"
-        value={from}
-        onChange={handleFromChange}
+        value={minPrice}
+        onChange={handleMinPrice}
       />
       <TextField
+        sx={{width:"100px", marginRight:"40px"}}
         label="To"
         type="number"
-        value={to}
-        onChange={handleToChange}
+        value={maxPrice}
+        onChange={handleMaxPrice}
       />
       {isDiscount &&
       <FormControlLabel
+        sx={{marginRight: "90px"}}
         labelPlacement='start'
         control={<Checkbox checked={discount} onChange={handleDiscountChange} />}
-        label="Discounted items"
+        label={<span style={{ fontWeight: 'bold', fontSize:"20px" }}>Discounted items</span>}
       />
       }
 
-      <InputLabel>Sorted</InputLabel>
+      <InputLabel sx={{fontWeight:"bold", color:"black", fontSize: "20px", marginRight:"40px"}}>Sorted</InputLabel>
       <Select
+        sx={{width: "220px"}}
           value={sortOption}
           onChange={handleSortChange}
           displayEmpty

@@ -2,7 +2,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import styles from './index.module.css';
 import ProductsContainer from '../../components/ProductsContainer';
 import InputPriceSelection from '../../components/InputPriceSelection';
-import { getProducts } from '../../core/redux/store/slices/productsSlice';
+import { getProducts, setMinPrice, setMaxPrice } from '../../core/redux/store/slices/productsSlice';
 import { setSortingMethod } from '../../core/redux/store/slices/sortingSlice';
 import { sortProducts } from '../../utils';
 import { useEffect } from 'react';
@@ -13,10 +13,15 @@ function AllSales() {
 
     useEffect(() => {
         dispatch(getProducts());
+        dispatch(setMinPrice(''));
+        dispatch(setMaxPrice(''));
+        dispatch(setSortingMethod('default'))
     }, []);
 
     const { productsData, status } = useSelector((state) => state.products);
     const sortOption = useSelector((state) => state.sorting);
+    const minPrice = useSelector((state) => state.products.minPrice);
+    const maxPrice = useSelector((state) => state.products.maxPrice);
 
     const discountProducts = productsData.filter(
         (product) => product.discont_price !== null
@@ -27,15 +32,37 @@ function AllSales() {
         dispatch(setSortingMethod(newSortOption.target.value));
     };
 
+    const handleMinPrice = (event) => {
+        dispatch(setMinPrice(event.target.value));
+    };
+      
+    const handleMaxPrice = (event) => {
+        dispatch(setMaxPrice(event.target.value));
+    };
+
     useEffect(() => {
-        let sortedProducts = sortProducts(discountProducts, sortOption);
+
+        const filteredProducts = minPrice ? discountProducts.filter((product) => {
+            const price = parseFloat(product.price);
+            return price >= minPrice && price <= maxPrice;
+        }) : discountProducts;
+
+        let sortedProducts = sortProducts(filteredProducts, sortOption);
+
         setSortedData(sortedProducts);
-    }, [sortOption, productsData]);
+    }, [sortOption, productsData, minPrice, maxPrice]);
 
     return (
         <div className={styles.AllSales_wrapper}>
             <h3 className={styles.sales_title}>Products with sale</h3>
-            <InputPriceSelection sortOption={sortOption} handleSortChange={handleSortChange}/>
+            <InputPriceSelection 
+                sortOption={sortOption} 
+                handleSortChange={handleSortChange}
+                minPrice={minPrice}
+                maxPrice={maxPrice}
+                handleMinPrice={handleMinPrice}
+                handleMaxPrice={handleMaxPrice}
+            />
             <ProductsContainer status={status} products={sortedData}/>
         </div>
     )

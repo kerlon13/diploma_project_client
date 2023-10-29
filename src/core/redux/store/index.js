@@ -11,5 +11,5 @@ export default configureStore({
         category: categoryReducer,
         sorting: sortingReducer
     }
-})
+});
 
