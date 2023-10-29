@@ -2,16 +2,13 @@ import styles from './index.module.css';
 import ProductCard from "../ProductCard";
 import { Skeleton } from "@mui/material";
 
-function ProductsContainer ({products, status, discount}) {
-    const filteredProducts = discount
-    ? products.filter((product) => product.discont_price !== null)
-    : products;
+function ProductsContainer ({products, status}) {
 
     return (
         <div className={styles.products_container}>    
             <div className={styles.products_wrapper}>
                 {status !== 'loading' && products ? (
-                    filteredProducts.map((product) => (
+                    products.map((product) => (
                         <ProductCard key={product.id} {...product} />
                     ))
                 ) : (

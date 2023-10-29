@@ -22,7 +22,7 @@ function SingleProduct() {
             {status !== 'loading' && productsData[0] ? (
             <SingleProductCard {...productsData[0]}/>
             ) : (
-            <Skeleton variant="text" sx={{ fontSize: '1.5rem' }} />
+            <Skeleton variant="rectangular" width={800} height={350} />
             ) }
             
         </div>

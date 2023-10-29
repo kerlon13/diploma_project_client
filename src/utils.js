@@ -6,3 +6,26 @@ import mapImg from './assets/images/map.svg';
 export {instagramIcon, whatsappIcon, mapImg};
 export const BASE_URL = "http://localhost:3333";
 export default discountImg;
+
+export const sortProducts = (products, sortOption) => {
+    let sortedProducts = [...products];
+  
+    switch (sortOption) {
+      case 'priceAsc':
+        sortedProducts.sort((a, b) => a.price - b.price);
+        break;
+      case 'priceDesc':
+        sortedProducts.sort((a, b) => b.price - a.price);
+        break;
+      case 'titleAsc':
+        sortedProducts.sort((a, b) => a.title.localeCompare(b.title));
+        break;
+      case 'titleDesc':
+        sortedProducts.sort((a, b) => b.title.localeCompare(a.title));
+        break;
+      default:
+    }
+  
+    return sortedProducts;
+  };
+  

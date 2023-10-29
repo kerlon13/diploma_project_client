@@ -7,11 +7,11 @@ import MenuItem from '@mui/material/MenuItem';
 import styles from './index.module.css';
 import { InputLabel } from '@mui/material';
 
-function InputPriceSelection({isDiscount, discount, handleDiscountChange}) {
+function InputPriceSelection({isDiscount, discount, handleDiscountChange, sortOption, handleSortChange}) {
   const [from, setFrom] = useState('');
   const [to, setTo] = useState('');
   
-  const [sortOption, setSortOption] = useState('');
+  // const [pageSortOption, setPageSortOption] = useState(sortOption);
 
   const handleFromChange = (event) => {
     setFrom(event.target.value);
@@ -21,9 +21,9 @@ function InputPriceSelection({isDiscount, discount, handleDiscountChange}) {
     setTo(event.target.value);
   };
 
-  const handleSortChange = (event) => {
-    setSortOption(event.target.value);
-  };
+  // const handleSortChange = (event) => {
+  //   setPageSortOption(event.target.value);
+  // };
 
   return (
     <div className={styles.input_wrapper}>
@@ -55,7 +55,7 @@ function InputPriceSelection({isDiscount, discount, handleDiscountChange}) {
           displayEmpty
           inputProps={{ 'aria-label': 'Without label' }}
         >
-          <MenuItem value="">
+          <MenuItem value="default">
             <em>by default</em>
           </MenuItem>
           <MenuItem value="priceAsc">Price (Low to High)</MenuItem>
