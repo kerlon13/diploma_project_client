@@ -11,6 +11,7 @@ import Categories from './pages/Categories';
 import SingleCategory from './pages/SingleCategory';
 import { useRef } from 'react';
 import SingleProduct from './pages/SingleProduct';
+import NotAPage from './pages/NotAPage';
 
 function App() {
 
@@ -28,6 +29,7 @@ function App() {
         <Route path='/categories' element={<Categories />} />
         <Route path='/:category_id' element={<SingleCategory />} />
         <Route path='/products/:product_id' element={<SingleProduct />} />
+        <Route path='*' element={<NotAPage />}/>
       </Routes>
       <Footer />
     </div>

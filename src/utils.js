@@ -2,10 +2,12 @@ import discountImg from './assets/images/discountImg.svg';
 import instagramIcon from './assets/icons/instagram.svg';
 import whatsappIcon from './assets/icons/whatsapp.svg';
 import mapImg from './assets/images/map.svg';
+import notAPageImg from './assets/images/error404.svg';
 
 export {instagramIcon, whatsappIcon, mapImg};
 export const BASE_URL = "http://localhost:3333";
 export default discountImg;
+export {notAPageImg};
 
 export const sortProducts = (products, sortOption) => {
     let sortedProducts = [...products];

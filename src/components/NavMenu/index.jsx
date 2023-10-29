@@ -18,7 +18,7 @@ function NavMenu({catalogRef, location}) {
         <nav>
             <div className={styles.nav_wrapper}>
                 <div className={styles.icon_container}>
-                    <img src={mainIcon} alt='main icon'/>
+                    <img id="anchor" src={mainIcon} alt='main icon'/>
                     <Link to='/'>
                     <Button 
                         style={{background: '#393', borderRadius: '5px'}} 

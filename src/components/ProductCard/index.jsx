@@ -9,7 +9,7 @@ function ProductCard ({id, discont_price, image, price, title}) {
     const [isHovered, setIsHovered] = useState(false);
 
     return (
-        <Link to={`/products/${id}`} style={{ maxWidth: "100%", height: 500, textDecoration: "none" }}>
+        <Link to={`/products/${id}/#anchor`} style={{ maxWidth: "100%", height: 500, textDecoration: "none" }}>
             <Card 
                 onMouseEnter={() => setIsHovered(true)}
                 onMouseLeave={() => setIsHovered(false)}
