@@ -1,5 +1,5 @@
 import React, { useEffect} from 'react';
-import { Route, Routes} from 'react-router-dom';
+import { Route, Routes, useLocation} from 'react-router-dom';
 import './App.css';
 import NavMenu from './components/NavMenu';
 import Homepage from './pages/HomePage';
@@ -14,6 +14,11 @@ import SingleProduct from './pages/SingleProduct';
 import NotAPage from './pages/NotAPage';
 
 function App() {
+  const location = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [location]);
 
   const catalogRef = useRef(null);
   const saleRef = useRef(null);

@@ -14,10 +14,18 @@ export const sortProducts = (products, sortOption) => {
   
     switch (sortOption) {
       case 'priceAsc':
-        sortedProducts.sort((a, b) => a.price - b.price);
+        sortedProducts.sort((a, b) => {
+          const priceFirst = a.discont_price || a.price; 
+          const priceSecond = b.discont_price || b.price; 
+          return priceFirst - priceSecond;
+        });        
         break;
       case 'priceDesc':
-        sortedProducts.sort((a, b) => b.price - a.price);
+        sortedProducts.sort((a, b) => {
+          const priceFirst = a.discont_price || a.price; 
+          const priceSecond = b.discont_price || b.price; 
+          return priceSecond - priceFirst;
+        });
         break;
       case 'titleAsc':
         sortedProducts.sort((a, b) => a.title.localeCompare(b.title));
