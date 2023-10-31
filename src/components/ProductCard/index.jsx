@@ -13,7 +13,7 @@ function ProductCard({ id, discont_price, image, price, title }) {
   };
 
   return (
-    <div>
+    
     <Link to={`/products/${id}`} style={{ maxWidth: "100%", height: 500, textDecoration: "none" }}>
       <Card
         onMouseEnter={() => setIsHovered(true)}
@@ -51,7 +51,7 @@ function ProductCard({ id, discont_price, image, price, title }) {
         )}
       </Card>
     </Link>
-    </div>
+
   );
 }
 

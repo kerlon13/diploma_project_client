@@ -5,7 +5,6 @@ import { useRef } from 'react';
 import { Link } from 'react-router-dom';
 
 function Catalog ({catalogRef}) {
-    console.log(catalogRef);
     
     return(
         <section >
