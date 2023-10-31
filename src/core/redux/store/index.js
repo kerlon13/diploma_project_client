@@ -3,13 +3,15 @@ import categoriesReducer from "./slices/categoriesSlice";
 import productsReducer from "./slices/productsSlice";
 import categoryReducer from "./slices/singleCategorySlice";
 import sortingReducer from "./slices/sortingSlice";
+import cartReducer from "./slices/cartSlice";
 
 export default configureStore({
     reducer: {
         categories: categoriesReducer,
         products: productsReducer,
         category: categoryReducer,
-        sorting: sortingReducer
+        sorting: sortingReducer,
+        cart: cartReducer,
     }
 });
 

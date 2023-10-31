@@ -1,10 +1,35 @@
-import { Button } from "@mui/material";
+import { Alert, Button, Snackbar } from "@mui/material";
 import { BASE_URL } from "../../utils";
 import styles from './index.module.css';
+import { useDispatch, useSelector } from "react-redux";
+import { addToCart, updateCartItemQuantity } from "../../core/redux/store/slices/cartSlice";
+import { useState } from "react";
 
-function SingleProductCard ({title, image, discont_price, price, description}) {
+function SingleProductCard ({id, title, image, discont_price, price, description}) {
     const url = `${BASE_URL}${image}`;
-    console.log(title);
+    const dispatch = useDispatch();
+    const cartItems = useSelector((state) => state.cart);
+    const [isSnackbarOpen, setIsSnackbarOpen] = useState(false);
+
+    const handleOpenSnackbar = () => {
+        setIsSnackbarOpen(true);
+      };
+    
+      const handleCloseSnackbar = () => {
+        setIsSnackbarOpen(false);
+      };
+
+    const handleAddToCart = (event) => {
+        event.stopPropagation();
+        const cartItem = cartItems.find((item) => item.id === id);
+        if (cartItem) {
+          dispatch(updateCartItemQuantity({ id, quantity: cartItem.quantity + 1 }));
+        } else {
+          dispatch(addToCart({ id, title, price,discont_price, image, quantity: 1 }));
+        }
+        handleOpenSnackbar();
+    };
+
     return (
         <div>
             <h3 className={styles.product_title}>{title}</h3>
@@ -21,6 +46,7 @@ function SingleProductCard ({title, image, discont_price, price, description}) {
                     <Button 
                         style={{background: '#393', borderRadius: '5px', marginBottom:'40px', width: '70%', height: '70px'}} 
                         variant='contained'
+                        onClick={handleAddToCart}
                     >
                         To cart
                     </Button>
@@ -30,6 +56,16 @@ function SingleProductCard ({title, image, discont_price, price, description}) {
                     </div>
                 </div>
             </div>
+            <Snackbar
+                anchorOrigin={{ vertical: 'top', horizontal: 'right' }}
+                open={isSnackbarOpen}
+                autoHideDuration={3000} 
+                onClose={handleCloseSnackbar}
+                >
+                <Alert onClose={handleCloseSnackbar} severity="success" sx={{ width: '300px' }}>
+                    Product added to cart!
+                </Alert>
+            </Snackbar>
         </div>
     )
 };

@@ -3,8 +3,11 @@ import instagramIcon from './assets/icons/instagram.svg';
 import whatsappIcon from './assets/icons/whatsapp.svg';
 import mapImg from './assets/images/map.svg';
 import notAPageImg from './assets/images/error404.svg';
+import plusIcon from './assets/icons/plusIcon.svg';
+import minusIcon from './assets/icons/minusIcon.svg';
+import closeIcon from './assets/icons/closeIcon.svg';
 
-export {instagramIcon, whatsappIcon, mapImg};
+export {instagramIcon, whatsappIcon, mapImg, minusIcon, plusIcon, closeIcon};
 export const BASE_URL = "http://localhost:3333";
 export default discountImg;
 export {notAPageImg};
@@ -37,6 +40,7 @@ export const sortProducts = (products, sortOption) => {
     }
   
     return sortedProducts;
-  };
+};
+
 
   
