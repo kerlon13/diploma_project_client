@@ -18,7 +18,7 @@ function CartProductCard ({id, title, price, discont_price, image, quantity}) {
             <div className={styles.img_container}><img src={url} alt={title} /></div>
             <div className={styles.title_container}>
                 <p className={styles.title}>{title}</p>
-                <CartButtonGroup count={quantity}/>
+                <CartButtonGroup count={quantity} id={id}/>
             </div>
             <div className={styles.price_container}>
                 <p className={styles.discount_price}>{discont_price ? discont_price : price}$</p>
