@@ -3,6 +3,7 @@ import styles from './index.module.css';
 import CategoriesContainer from '../CategoriesContainer';
 import { useRef } from 'react';
 import { Link } from 'react-router-dom';
+import CategoriesSlider from '../CategoriesSlider';
 
 function Catalog ({catalogRef}) {
     
@@ -20,7 +21,7 @@ function Catalog ({catalogRef}) {
                         </Button>
                     </Link>
                 </div>
-                <CategoriesContainer isAllCategories={false} />
+                <CategoriesSlider />
             </div>
         </section>
     )

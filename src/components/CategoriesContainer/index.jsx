@@ -5,12 +5,11 @@ import { Skeleton } from "@mui/material";
 
 function CategoriesContainer ({isAllCategories}) {
     const { categoriesData, status } = useSelector((state) => state.categories);
-    const displayedCategories = isAllCategories ? categoriesData : categoriesData.slice(0, 4);
 
     return (
         <div className={styles.categories_container}>
             {status !== 'loading' ? (
-                displayedCategories.map((category) => (
+                categoriesData.map((category) => (
                     <CategoryCard key={category.id} {...category} />
                 ))
             ) : (

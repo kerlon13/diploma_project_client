@@ -50,7 +50,7 @@ function ProductCard({ id, discont_price, image, price, title }) {
             component="img"
             image={url}
             alt={title}
-            sx={{ height: 400, objectFit: "cover" }}
+            sx={{ height: "30vh", objectFit: "cover"  }}
           />
 
           <CardContent>
@@ -80,7 +80,7 @@ function ProductCard({ id, discont_price, image, price, title }) {
       <Snackbar
           anchorOrigin={{ vertical: 'top', horizontal: 'center' }}
           open={isSnackbarOpen}
-          autoHideDuration={3000} 
+          autoHideDuration={2000} 
           onClose={handleCloseSnackbar}
         >
           <Alert onClose={handleCloseSnackbar} severity="success" sx={{ width: '300px' }}>

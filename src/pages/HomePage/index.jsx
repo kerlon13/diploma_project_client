@@ -7,6 +7,7 @@ import { getCategories } from '../../core/redux/store/slices/categoriesSlice';
 import { getProducts } from '../../core/redux/store/slices/productsSlice';
 import styles from './index.module.css';
 import { useDispatch } from 'react-redux';
+import CategoriesSlider from '../../components/CategoriesSlider';
 
 function Homepage({catalogRef, saleRef}) {
     const dispatch = useDispatch();
