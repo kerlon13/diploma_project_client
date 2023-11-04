@@ -12,19 +12,44 @@ export const sendOrder = createAsyncThunk(
             body: JSON.stringify(orderData),
             });
 
-        if (response.ok) {
-            return true;
-        } else {
-        throw new Error('Failed to send order');
-        }
+        if (!response.ok) {
+            throw new Error('Failed to send order');
+        } 
     } catch (error) {
         return rejectWithValue(error.message);
     }
 });
 
+const setError = (state, action) => {
+    state.status = "rejected";
+    state.error = action.payload;
+};
+  
 const orderSlice = createSlice({
-  name: 'order',
-  initialState: {},
+    name: "order",
+    initialState: {
+      orderData: {},
+      status: null,
+      error: null,
+    },
+    reducers : {
+      resetOrderStatus: (state) => {
+        state.status = null;
+        state.error = null;
+      },
+    },
+    extraReducers: (builder) => {
+      builder
+        .addCase(sendOrder.pending, (state) => {
+          state.status = "loading";
+          state.error = null;
+        })
+        .addCase(sendOrder.fulfilled, (state, action) => {
+          state.status = "resolved";
+          state.error = null;
+        })
+        .addCase(sendOrder.rejected, setError);
+    },
 });
-
+export const {resetOrderStatus} = orderSlice.actions;
 export default orderSlice.reducer;
