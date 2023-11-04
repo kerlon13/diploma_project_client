@@ -19,3 +19,7 @@
     font-weight: bold;
     margin-left: auto;
 }
+.order_container {
+    display: flex;
+    justify-content: space-between;
+}

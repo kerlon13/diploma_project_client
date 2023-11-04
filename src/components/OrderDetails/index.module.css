@@ -1,0 +1,27 @@
+.order_details_container {
+    width: 30%;
+    border: 2px solid black;
+    border-radius: 20px;
+    max-height: 350px;
+    padding: 25px;
+}
+.order_title {
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 45px;
+}
+.total_container {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 50px;
+}
+.total_text {
+    font-size: 24px;
+}
+.total_amount {
+    font-size: 32px;
+    font-weight: bold;
+}.phone_input {
+    border: 1px solid black;
+    border-radius: 20px;
+}

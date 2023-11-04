@@ -1,4 +1,5 @@
 import CartContainer from '../../components/CartContainer';
+import OrderDetails from '../../components/OrderDetails';
 import styles from './index.module.css';
 import { Link } from 'react-router-dom';
 
@@ -10,8 +11,9 @@ function Cart() {
             <div className={styles.link_container}>
                 <Link to='/' className={styles.link}>Back to the store</Link>
             </div>
-            <div>
+            <div className={styles.order_container}>
                 <CartContainer />
+                <OrderDetails />
             </div>
         </div>
     )
