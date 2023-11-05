@@ -14,7 +14,7 @@ function ProductsContainer ({products, status}) {
                 ) : (
                     Array.from({ length: 4 }).map((_, index) => (
                         <div key={index}>
-                            <Skeleton variant="rectangular" width={320} height={350} />
+                            <Skeleton variant="rectangular" width={320} height={"40vh"} />
                             <Skeleton variant="text" sx={{ fontSize: '1.5rem' }} />
                         </div>
                     )) 

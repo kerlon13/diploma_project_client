@@ -4,14 +4,14 @@ import cartImg from '../../assets/icons/shoppingBag.svg';
 import { Button } from '@mui/material';
 import { Link, useNavigate } from 'react-router-dom';
 
-function NavMenu({catalogRef, location}) {
+function NavMenu({catalogRef}) {
     const navigate = useNavigate();
    
     const scrollToCatalog = () => {
         navigate('/');
         if (catalogRef.current) {
             catalogRef.current.scrollIntoView({ behavior: 'smooth' });
-          }
+        }
     };
 
     return (

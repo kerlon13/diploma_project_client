@@ -22,10 +22,6 @@ function SingleCategory() {
         dispatch(setSortingMethod('default'))
     }, []);
 
-    // useEffect(() => {
-    //     dispatch(getCategoryProducts(category_id));
-    // }, []);
-
     const { singleCategoryData, status } = useSelector((state) => state.category);
     const [discount, setDiscount] = useState(false);
     const [sortedData, setSortedData] = useState(singleCategoryData.data);
@@ -37,7 +33,6 @@ function SingleCategory() {
         setDiscount(event.target.checked);
     };
 
-
     const handleMinPrice = (event) => {
         dispatch(setMinPrice(event.target.value));
     }
@@ -46,26 +41,31 @@ function SingleCategory() {
         dispatch(setMaxPrice(event.target.value));
     }
     
-
     const handleSortChange = (newSortOption) => {
         dispatch(setSortingMethod(newSortOption.target.value));
     };
+
+    useEffect(() => {
+        if (singleCategoryData.data) {
+        const filteredProducts = minPrice
+            ? singleCategoryData.data.filter((product) => {
+                const price = parseFloat(product.price);
+                return price >= minPrice && price <= maxPrice;
+            })
+            : singleCategoryData.data;
+    
+        let sortedProducts = sortProducts(filteredProducts, sortOption);
+    
+        if (discount) {
+            sortedProducts = sortedProducts.filter(
+            (product) => product.discont_price !== null
+            );
+        }
+    
+        setSortedData(sortedProducts);
+        }
+    }, [sortOption, discount, singleCategoryData, minPrice, maxPrice]);
   
-  useEffect(() => {
-    const filteredProducts = minPrice ? singleCategoryData.data.filter((product) => {
-        const price = parseFloat(product.price);
-        return price >= minPrice && price <= maxPrice;
-    }) : singleCategoryData.data;
-
-    let sortedProducts = sortProducts(filteredProducts, sortOption);
-
-    if (discount) {
-      sortedProducts = sortedProducts.filter((product) => product.discont_price !== null);
-    }
-
-    setSortedData(sortedProducts);
-  }, [sortOption, discount, singleCategoryData, minPrice, maxPrice]);
-
     return (
         <div className={styles.category_wrapper}>
             {status !== 'loading' && singleCategoryData && singleCategoryData.data ? (
