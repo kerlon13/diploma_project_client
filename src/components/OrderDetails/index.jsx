@@ -4,13 +4,14 @@ import { calculateOrderTotal } from '../../utils';
 import { Box, Button,CircularProgress,Modal,TextField, Typography } from '@mui/material';
 import { useEffect, useState } from 'react';
 import { sendOrder, resetOrderStatus } from '../../core/redux/store/slices/orderSlice';
+import { resetCart } from '../../core/redux/store/slices/cartSlice';
 
 function OrderDetails () {
     const cartItems = useSelector((state) => state.cart);
     const [phoneNumber, setPhoneNumber] = useState('');
     const dispatch = useDispatch();
     const orderStatus = useSelector((state) => state.order.status);
-    console.log(orderStatus);
+
     const handlePhoneChange = (event) => {
         setPhoneNumber(event.target.value); 
     };
@@ -28,6 +29,7 @@ function OrderDetails () {
     const handleCloseModal = () => {
         setIsModalOpen(false);
         dispatch(resetOrderStatus());
+        dispatch(resetCart());
     };
 
     useEffect(() => {
