@@ -15,17 +15,24 @@ import NotAPage from './pages/NotAPage';
 
 function App() {
   const location = useLocation();
+  const [isCatalogClick, setIsCatalogClick] = useState(false);
 
   useEffect(() => {
-      window.scrollTo(0, 0);
+      if(isCatalogClick === false) {
+        window.scrollTo(0, 0);
+      }
   }, [location]);
+
+  useEffect(() => {
+    setIsCatalogClick(false)
+  }, [isCatalogClick])
 
   const catalogRef = useRef(null);
   const saleRef = useRef(null);
 
   return (
     <div className="App">
-      <NavMenu catalogRef={catalogRef} />
+      <NavMenu catalogRef={catalogRef} setIsCatalogClick={setIsCatalogClick}/>
       <Routes>
         <Route path='/' element={<Homepage catalogRef={catalogRef} saleRef={saleRef}/>}/>
         <Route path='/allProducts' element={<AllProducts />} />

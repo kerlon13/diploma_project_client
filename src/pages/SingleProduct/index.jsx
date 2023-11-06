@@ -15,7 +15,6 @@ function SingleProduct() {
     }, []);
 
     const { productsData, status } = useSelector((state) => state.products);
-    console.log(productsData);
 
     return (
         <div className={styles.singleProduct_wrapper}>

@@ -15,10 +15,6 @@ function OrderDetails () {
     const orderStatus = useSelector((state) => state.order.status);
     const { register, handleSubmit, formState: { errors }, reset } = useForm({mode:"onChange"});
 
-    const handlePhoneChange = (event) => {
-        setPhoneNumber(event.target.value); 
-    };
-
     const [isModalOpen, setIsModalOpen] = useState(false);
 
     const handleCloseModal = () => {
@@ -30,7 +26,7 @@ function OrderDetails () {
     const onSubmit = (data) => {
         if(cartItems.length !== 0){
             const orderData = {
-                phone: phoneNumber,
+                phone: data.phone,
                 items: cartItems, 
               };
             dispatch(sendOrder(orderData));
@@ -66,6 +62,7 @@ function OrderDetails () {
                         },
                     })}
                     className={styles.phone_input}
+                    placeholder='Phone number'
                 />
                 {errors.phone && <p className={styles.error_message}>{errors.phone.message}</p>}
                 {orderStatus === 'loading' ? (

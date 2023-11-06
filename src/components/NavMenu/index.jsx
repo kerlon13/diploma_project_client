@@ -4,10 +4,11 @@ import cartImg from '../../assets/icons/shoppingBag.svg';
 import { Button } from '@mui/material';
 import { Link, useNavigate } from 'react-router-dom';
 
-function NavMenu({catalogRef}) {
+function NavMenu({catalogRef, setIsCatalogClick}) {
     const navigate = useNavigate();
    
     const scrollToCatalog = () => {
+        setIsCatalogClick(true);
         navigate('/');
         if (catalogRef.current) {
             catalogRef.current.scrollIntoView({ behavior: 'smooth' });

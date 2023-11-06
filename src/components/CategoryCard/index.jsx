@@ -7,13 +7,13 @@ function CategoryCard ({id, title, image}) {
 
     return (
         <Link to={`/${id}`} style={{ maxWidth: "23%", marginBottom: "50px", textDecoration: "none" }}>
-            <Card >
+            <Card sx={{height: "100%"}} >
                 <CardActionArea>
                     <CardMedia
                         component="img"
                         image={url}
                         alt={title}
-                        sx={{height: 350, objectFit: "cover"}}
+                        sx={{height: "35vh", objectFit: "cover"}}
                     />
                     <CardContent>
                         {title}
