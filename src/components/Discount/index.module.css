@@ -21,5 +21,33 @@
     width: 400px;
     font-size: 20px;
 }
+.phone_input {
+    background: #FFF;
+    width: 100%;
+    border-radius: 25px;
+    border: none;
+    height: 75px;
+    margin-bottom: 30px;
+    padding: 20px;
+    color: #6C6C6C;
+    font-size: 20px;
+}
+.submit_button {
+    width: 100%;
+    border-radius: 25px;
+    border: 2px solid white;
+    height: 75px;
+    padding: 10px;
+    font-size: 28px;
+    background-color: rgba(51, 153, 51, 1);
+    color: white;
+    cursor: pointer;
+}
+.error_message {
+    color: red;
+    font-weight: bold;
+    font-size: 20px;
+    margin-bottom: 10px;
+}
 
 
