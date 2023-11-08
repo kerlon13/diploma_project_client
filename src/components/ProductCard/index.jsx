@@ -1,7 +1,7 @@
 import { Alert, Button, Card, CardActionArea, CardContent, CardMedia, Snackbar } from "@mui/material";
 import { BASE_URL } from "../../utils";
 import styles from "./index.module.css";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { addToCart, updateCartItemQuantity } from "../../core/redux/store/slices/cartSlice";
@@ -36,6 +36,10 @@ function ProductCard({ id, discont_price, image, price, title }) {
     }
     handleOpenSnackbar();
   };
+
+  useEffect(() => {
+    localStorage.setItem('cart', JSON.stringify(cartItems));
+  }, [cartItems]);
 
   return (
     <div>

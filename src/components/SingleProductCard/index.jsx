@@ -3,7 +3,7 @@ import { BASE_URL } from "../../utils";
 import styles from './index.module.css';
 import { useDispatch, useSelector } from "react-redux";
 import { addToCart, updateCartItemQuantity } from "../../core/redux/store/slices/cartSlice";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 function SingleProductCard ({id, title, image, discont_price, price, description}) {
     const url = `${BASE_URL}${image}`;
@@ -29,6 +29,10 @@ function SingleProductCard ({id, title, image, discont_price, price, description
         }
         handleOpenSnackbar();
     };
+
+    useEffect(() => {
+        localStorage.setItem('cart', JSON.stringify(cartItems));
+    }, [cartItems]);
 
     return (
         <div>

@@ -24,8 +24,11 @@ const cartSlice = createSlice({
         item.quantity = quantity; 
       }
     },
+    updateCartFromLocalStorage: (state, action) => {
+      return action.payload;
+    },
   },
 });
 
-export const { addToCart, removeFromCart, updateCartItemQuantity, resetCart } = cartSlice.actions;
+export const { addToCart, removeFromCart, updateCartItemQuantity, resetCart, updateCartFromLocalStorage } = cartSlice.actions;
 export default cartSlice.reducer;

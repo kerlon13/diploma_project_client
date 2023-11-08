@@ -12,10 +12,13 @@ import SingleCategory from './pages/SingleCategory';
 import { useRef } from 'react';
 import SingleProduct from './pages/SingleProduct';
 import NotAPage from './pages/NotAPage';
+import { useDispatch } from 'react-redux';
+import { updateCartFromLocalStorage } from './core/redux/store/slices/cartSlice';
 
 function App() {
   const location = useLocation();
   const [isCatalogClick, setIsCatalogClick] = useState(false);
+  const dispatch = useDispatch();
 
   useEffect(() => {
       if(isCatalogClick === false) {
@@ -29,6 +32,13 @@ function App() {
 
   const catalogRef = useRef(null);
   const saleRef = useRef(null);
+
+  useEffect(() => {
+    const cartFromLocalStorage = JSON.parse(localStorage.getItem('cart'));
+    if (cartFromLocalStorage) {
+      dispatch(updateCartFromLocalStorage(cartFromLocalStorage));
+    }
+  }, []);
 
   return (
     <div className="App">

@@ -40,6 +40,10 @@ function OrderDetails () {
           setPhoneNumber(null);
         }
     }, [orderStatus]);
+
+    useEffect(() => {
+        localStorage.setItem('cart', JSON.stringify(cartItems));
+    }, [cartItems]);
     
     return (
         <div className={styles.order_details_container}>
