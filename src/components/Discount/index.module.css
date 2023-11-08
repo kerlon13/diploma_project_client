@@ -49,5 +49,7 @@
     font-size: 20px;
     margin-bottom: 10px;
 }
-
+.phone_input:focus {
+    outline: none;
+}
 

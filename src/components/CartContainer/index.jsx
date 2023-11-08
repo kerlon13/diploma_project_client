@@ -4,7 +4,7 @@ import { useSelector } from "react-redux";
 
 function CartContainer() {
     const cartItems = useSelector((state) => state.cart);
-
+    
     return (
         <div className={styles.cart_container}>
             {cartItems.map((cartItem) => (

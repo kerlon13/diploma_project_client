@@ -1,3 +1,4 @@
+import { useDispatch } from 'react-redux';
 import CartContainer from '../../components/CartContainer';
 import OrderDetails from '../../components/OrderDetails';
 import styles from './index.module.css';

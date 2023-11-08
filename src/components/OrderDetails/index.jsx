@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux';
 import styles from './index.module.css';
 import { calculateOrderTotal } from '../../utils';
-import { useForm } from 'react-hook-form';
+import { useForm, Controller } from 'react-hook-form';
 import { Box, Button,CircularProgress,Modal, Typography } from '@mui/material';
 import { useEffect, useState } from 'react';
 import { sendOrder, resetOrderStatus } from '../../core/redux/store/slices/orderSlice';
@@ -10,10 +10,14 @@ import InputMask from 'react-input-mask';
 
 function OrderDetails () {
     const cartItems = useSelector((state) => state.cart);
-    const [phoneNumber, setPhoneNumber] = useState(null);
     const dispatch = useDispatch();
     const orderStatus = useSelector((state) => state.order.status);
-    const { register, handleSubmit, formState: { errors }, reset } = useForm({mode:"onChange"});
+    const { register, handleSubmit,control, formState: { errors }, reset } = useForm({
+        mode:"onChange",
+        defaultValues: {
+            phone: ""
+        }
+    });
 
     const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -28,16 +32,15 @@ function OrderDetails () {
             const orderData = {
                 phone: data.phone,
                 items: cartItems, 
-              };
+            };
             dispatch(sendOrder(orderData));
-            setPhoneNumber("");
+            reset({ phone: "" });
         } 
     };
 
     useEffect(() => {
         if (orderStatus === 'resolved') {
           setIsModalOpen(true);
-          setPhoneNumber(null);
         }
     }, [orderStatus]);
 
@@ -53,20 +56,33 @@ function OrderDetails () {
                 <p className={styles.total_amount}>{calculateOrderTotal(cartItems)}</p>
             </div>
             <form onSubmit={handleSubmit(onSubmit)}>
-                <InputMask
-                    value={phoneNumber}
-                    onChange={(event) => setPhoneNumber(event.target.value)}
-                    mask="+4 (999) 999-9999"
-                    maskChar="_"
-                    {...register('phone', {
+                <Controller
+                    name="phone"
+                    control={control}
+                    rules={{
                         required: 'This field is required',
                         pattern: {
                             value: /^\+\d{1,3}\s\(\d{3}\)\s\d{3}-\d{4}$/,
                             message: 'Please enter a valid phone number'
                         },
-                    })}
-                    className={styles.phone_input}
-                    placeholder='Phone number'
+                    }}
+                    render={({ field }) => (
+                        <InputMask
+                            mask="+4 (999) 999-9999"
+                            maskChar="_"
+                            value={field.value}
+                            onChange={field.onChange}
+                        >
+                            {(inputProps) => (
+                                <input
+                                    type="text"
+                                    {...inputProps}
+                                    placeholder="Phone number"
+                                    className={styles.phone_input}
+                                />
+                            )}
+                        </InputMask>
+                    )}
                 />
                 {errors.phone && <p className={styles.error_message}>{errors.phone.message}</p>}
                 {orderStatus === 'loading' ? (

@@ -1,6 +1,6 @@
 import styles from './index.module.css';
 import discountImg from '../../utils';
-import { useForm } from 'react-hook-form';
+import { useForm, Controller} from 'react-hook-form';
 import { sendSale } from '../../core/redux/store/slices/saleSlice';
 import { useDispatch, useSelector } from 'react-redux';
 import InputMask from 'react-input-mask';
@@ -10,9 +10,14 @@ import { useEffect } from 'react';
 import { Box, Button, Modal, Typography } from '@mui/material';
 
 function Discount ({saleRef}) {
-    const { register, handleSubmit, formState: { errors }, reset } = useForm({mode:"onChange"});
+    const { register,control, handleSubmit, formState: { errors }, reset } = useForm({
+        mode:"onChange",
+        defaultValues: {
+            phone: ""
+        }
+    });
+    
     const dispatch = useDispatch();
-    const [phone, setPhone] = useState(null);
     const saleStatus = useSelector((state) => state.sale.status);
     const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -21,14 +26,13 @@ function Discount ({saleRef}) {
         dispatch(resetSaleStatus());
     };
     const onSubmit = (data) => {
-        dispatch(sendSale(data))
-        setPhone("");
+        dispatch(sendSale(data));
+        reset({ phone: "" });
     };
 
     useEffect(() => {
         if (saleStatus === 'resolved') {
           setIsModalOpen(true);
-          setPhone(null);
         }
     }, [saleStatus]);
 
@@ -43,19 +47,33 @@ function Discount ({saleRef}) {
                     <p className={styles.discount_text}>on the first order</p>
                     <form className={styles.registration_form} onSubmit={handleSubmit(onSubmit)}>
                         <div>
-                            <InputMask
-                                value={phone}
-                                onChange={(event) => setPhone(event.target.value)}
-                                mask="+4 (999) 999-9999"
-                                maskChar="_" 
-                                {...register('phone', {
+                            <Controller
+                                name="phone"
+                                control={control}
+                                rules={{
                                     required: 'This field is required',
                                     pattern: {
                                         value: /^\+\d{1,3}\s\(\d{3}\)\s\d{3}-\d{4}$/,
                                         message: 'Please enter a valid phone number'
                                     },
-                                })} 
-                                className={styles.phone_input}
+                                }}
+                                render={({ field }) => (
+                                    <InputMask
+                                        mask="+4 (999) 999-9999"
+                                        maskChar="_"
+                                        value={field.value}
+                                        onChange={field.onChange}
+                                    >
+                                        {(inputProps) => (
+                                            <input
+                                                type="text"
+                                                {...inputProps}
+                                                placeholder="+4"
+                                                className={styles.phone_input}
+                                            />
+                                        )}
+                                    </InputMask>
+                                )}
                             />
                             {errors.phone && <p className={styles.error_message}>{errors.phone.message}</p>}
                         </div>
