@@ -20,7 +20,7 @@ function SingleProductCard ({id, title, image, discont_price, price, description
       };
 
     const handleAddToCart = (event) => {
-        event.stopPropagation();
+        // event.stopPropagation();
         const cartItem = cartItems.find((item) => item.id === id);
         if (cartItem) {
           dispatch(updateCartItemQuantity({ id, quantity: cartItem.quantity + 1 }));

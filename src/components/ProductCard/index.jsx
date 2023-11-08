@@ -73,7 +73,7 @@ function ProductCard({ id, discont_price, image, price, title }) {
             <Button
               variant="contained"
               color="primary"
-              style={{ borderRadius: "21px", border: "2px solid #393", background: "#F1FFF1", color: "rgba(51, 153, 51, 1)", height:"70px", width:"200px" }}
+              style={{ borderRadius: "21px", border: "2px solid #393", background: "#F1FFF1", color: "rgba(51, 153, 51, 1)", height:"8vh", width:"15vw" }}
               onClick={handleAddToCart}
             >
               Add to cart

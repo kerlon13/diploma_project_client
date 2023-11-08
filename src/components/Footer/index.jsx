@@ -1,5 +1,6 @@
 import styles from "./index.module.css";
 import {instagramIcon, whatsappIcon, mapImg} from '../../utils';
+import Map from '../Map';
 
 function Footer () {
 
@@ -36,7 +37,8 @@ function Footer () {
                         </div>
                     </div>
                 </div>
-                <div ><img src={mapImg} alt="google maps" className={styles.map_image}/></div>
+                {/* <div ><img src={mapImg} alt="google maps" className={styles.map_image}/></div> */}
+                <Map />
             </div>
         </footer>
     )
