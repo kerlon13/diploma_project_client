@@ -42,7 +42,6 @@ export const sortProducts = (products, sortOption) => {
     return sortedProducts;
 };
 
-
 export function calculateOrderTotal(items) {
   return items.reduce((total, item) => {
     const price = item.discont_price || item.price;
@@ -57,6 +56,8 @@ export const calculateCartCount = (cartItems) => {
   }
   return cartItems.reduce((total, currentItem) => total + currentItem.quantity, 0);
 };
+
+export const address = "Linkstraße 2, 8 OG, 10785, Berlin, Deutschland";
 
 
   

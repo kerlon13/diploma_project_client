@@ -1,6 +1,7 @@
 import styles from "./index.module.css";
-import {instagramIcon, whatsappIcon, mapImg} from '../../utils';
+import {instagramIcon, whatsappIcon} from '../../utils';
 import Map from '../Map';
+import { address } from "../../utils";
 
 function Footer () {
 
@@ -30,14 +31,13 @@ function Footer () {
                     </div>
                     <div className={styles.address_container}>
                         <p className={styles.footer_titel}>Address</p>
-                        <p className={styles.address}>Linkstraße 2, 8 OG, 10785, Berlin, Deutschland</p>
+                        <p className={styles.address}>{address}</p>
                         <div className={styles.working_hours_container}>
                             <p className={styles.working_hours}>Working Hours:</p>
                             <p className={styles.text}>24 hours a day</p>
                         </div>
                     </div>
                 </div>
-                {/* <div ><img src={mapImg} alt="google maps" className={styles.map_image}/></div> */}
                 <Map />
             </div>
         </footer>
