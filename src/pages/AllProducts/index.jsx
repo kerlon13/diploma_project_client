@@ -9,9 +9,7 @@ import { sortProducts } from '../../utils';
 
 function AllProducts() {
   const dispatch = useDispatch();
-
   useEffect(() => {
-    dispatch(getProducts());
     dispatch(setMinPrice(''));
     dispatch(setMaxPrice(''));
     dispatch(setSortingMethod('default'))
@@ -23,11 +21,14 @@ function AllProducts() {
   const sortOption = useSelector((state) => state.sorting);
   const minPrice = useSelector((state) => state.products.minPrice);
   const maxPrice = useSelector((state) => state.products.maxPrice);
-  
+
+  useEffect(() => {
+    dispatch(getProducts());
+  }, [minPrice, maxPrice, sortOption, discount]);
+
   const handleDiscountChange = (event) => {
     setDiscount(event.target.checked);
   };
-
 
   const handleMinPrice = (event) => {
     dispatch(setMinPrice(event.target.value));
@@ -37,11 +38,10 @@ function AllProducts() {
     dispatch(setMaxPrice(event.target.value));
   }
   
-
   const handleSortChange = (newSortOption) => {
     dispatch(setSortingMethod(newSortOption.target.value));
   };
-  
+
   useEffect(() => {
     const filteredProducts = minPrice ? productsData.filter((product) => {
         const price = parseFloat(product.price);

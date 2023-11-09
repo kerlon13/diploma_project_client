@@ -14,6 +14,12 @@ import InputPriceSelection from '../../components/InputPriceSelection';
 function SingleCategory() {
     const {category_id} = useParams();
     const dispatch = useDispatch();
+    const { singleCategoryData, status } = useSelector((state) => state.category);
+    const [discount, setDiscount] = useState(false);
+    const [sortedData, setSortedData] = useState(singleCategoryData.data);
+    const sortOption = useSelector((state) => state.sorting);
+    const minPrice = useSelector((state) => state.products.minPrice);
+    const maxPrice = useSelector((state) => state.products.maxPrice);
 
     useEffect(() => {
         dispatch(getCategoryProducts(category_id));
@@ -22,12 +28,9 @@ function SingleCategory() {
         dispatch(setSortingMethod('default'))
     }, []);
 
-    const { singleCategoryData, status } = useSelector((state) => state.category);
-    const [discount, setDiscount] = useState(false);
-    const [sortedData, setSortedData] = useState(singleCategoryData.data);
-    const sortOption = useSelector((state) => state.sorting);
-    const minPrice = useSelector((state) => state.products.minPrice);
-    const maxPrice = useSelector((state) => state.products.maxPrice);
+    useEffect(() => {
+        dispatch(getCategoryProducts(category_id));
+    }, [minPrice, maxPrice, discount, sortOption]);
     
     const handleDiscountChange = (event) => {
         setDiscount(event.target.checked);
@@ -61,7 +64,6 @@ function SingleCategory() {
             (product) => product.discont_price !== null
             );
         }
-    
         setSortedData(sortedProducts);
         }
     }, [sortOption, discount, singleCategoryData, minPrice, maxPrice]);
@@ -69,23 +71,21 @@ function SingleCategory() {
     return (
         <div className={styles.category_wrapper}>
             {status !== 'loading' && singleCategoryData && singleCategoryData.data ? (
-            <div>
                 <h3>{singleCategoryData.category.title}</h3>
-                <InputPriceSelection
-                    isDiscount={true}
-                    discount={discount}
-                    handleDiscountChange={handleDiscountChange}
-                    sortOption={sortOption}
-                    handleSortChange={handleSortChange}
-                    minPrice={minPrice}
-                    maxPrice={maxPrice}
-                    handleMinPrice={handleMinPrice}
-                    handleMaxPrice={handleMaxPrice}
-                />
-            </div>
             ) : (
             <Skeleton variant="text" sx={{ fontSize: '1.5rem' }} />
             ) }
+            <InputPriceSelection
+                isDiscount={true}
+                discount={discount}
+                handleDiscountChange={handleDiscountChange}
+                sortOption={sortOption}
+                handleSortChange={handleSortChange}
+                minPrice={minPrice}
+                maxPrice={maxPrice}
+                handleMinPrice={handleMinPrice}
+                handleMaxPrice={handleMaxPrice}
+            />
             <ProductsContainer products={sortedData} status={status}/>
         </div>
     )

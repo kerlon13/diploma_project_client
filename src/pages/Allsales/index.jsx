@@ -12,7 +12,6 @@ function AllSales() {
     const dispatch = useDispatch();
 
     useEffect(() => {
-        dispatch(getProducts());
         dispatch(setMinPrice(''));
         dispatch(setMaxPrice(''));
         dispatch(setSortingMethod('default'))
@@ -22,6 +21,10 @@ function AllSales() {
     const sortOption = useSelector((state) => state.sorting);
     const minPrice = useSelector((state) => state.products.minPrice);
     const maxPrice = useSelector((state) => state.products.maxPrice);
+
+    useEffect(() => {
+        dispatch(getProducts());
+    }, [minPrice, maxPrice, sortOption]);
 
     const discountProducts = productsData.filter(
         (product) => product.discont_price !== null
@@ -41,7 +44,6 @@ function AllSales() {
     };
 
     useEffect(() => {
-
         const filteredProducts = minPrice ? discountProducts.filter((product) => {
             const price = parseFloat(product.price);
             return price >= minPrice && price <= maxPrice;

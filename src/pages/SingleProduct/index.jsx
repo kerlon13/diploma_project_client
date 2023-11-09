@@ -12,7 +12,7 @@ function SingleProduct() {
 
     useEffect(() => {
         dispatch(getProducts(product_id));
-    }, []);
+    }, [dispatch, product_id]);
 
     const { productsData, status } = useSelector((state) => state.products);
 
@@ -22,8 +22,7 @@ function SingleProduct() {
             <SingleProductCard {...productsData[0]}/>
             ) : (
             <Skeleton variant="rectangular" width={800} height={350} />
-            ) }
-            
+            ) } 
         </div>
     )
 };
