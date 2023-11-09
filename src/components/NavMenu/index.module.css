@@ -15,20 +15,16 @@ nav {
     align-items: center;
 }
 .links_container {
-    width: 39%;
+    /* width: 39%; */
+    width: 40vw;
     display: flex;
     justify-content: space-between;
 }
 .links_of_pages {
-    width: 60%;
+    width: 65%;
     display: flex;
     justify-content: space-between;
 }
-/* .catalog_btn {
-    border-radius: 5px;
-    border: 2px solid #393;
-    background: #393;
-} */
 .link {
     color: #000;
     font-size: 16px;
@@ -36,3 +32,5 @@ nav {
     font-weight: 500;
     text-decoration: none;
 }
+
+

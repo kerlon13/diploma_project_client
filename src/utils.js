@@ -51,4 +51,12 @@ export function calculateOrderTotal(items) {
   }, 0);
 }
 
+export const calculateCartCount = (cartItems) => {
+  if (!cartItems || cartItems.length === 0) {
+      return 0;
+  }
+  return cartItems.reduce((total, currentItem) => total + currentItem.quantity, 0);
+};
+
+
   

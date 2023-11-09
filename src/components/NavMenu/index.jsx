@@ -1,12 +1,14 @@
 import styles from './index.module.css';
 import mainIcon from '../../assets/icons/mainIcon.svg';
-import cartImg from '../../assets/icons/shoppingBag.svg';
-import { Button } from '@mui/material';
+import { Badge, Button, ThemeProvider, createTheme } from '@mui/material';
 import { Link, useNavigate } from 'react-router-dom';
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import { useSelector } from 'react-redux';
+import { calculateCartCount } from '../../utils';
 
 function NavMenu({catalogRef, setIsCatalogClick}) {
     const navigate = useNavigate();
-   
+    const cartItems = useSelector((state) => state.cart);
     const scrollToCatalog = () => {
         setIsCatalogClick(true);
         navigate('/');
@@ -14,6 +16,20 @@ function NavMenu({catalogRef, setIsCatalogClick}) {
             catalogRef.current.scrollIntoView({ behavior: 'smooth' });
         }
     };
+
+    const theme = createTheme({
+        components: {
+            MuiBadge: {
+                styleOverrides: {
+                    badge: {
+                        backgroundColor: '#393',
+                        color: 'white', 
+                    },
+                },
+            },
+        },
+    });
+    
 
     return (
         <nav>
@@ -37,7 +53,13 @@ function NavMenu({catalogRef, setIsCatalogClick}) {
                         <Link className={styles.link} to='/allSales'>All sales</Link>
                     </div>
                     <div>
-                        <Link to='/cart'><img src={cartImg} alt='cart image'/></Link>
+                        <Link to='/cart'>
+                            <ThemeProvider theme={theme}>
+                                <Badge badgeContent={calculateCartCount(cartItems)}>
+                                    <ShoppingCartIcon sx={{ color: 'grey', fontSize: '2rem' }} />
+                                </Badge>
+                            </ThemeProvider>
+                        </Link> 
                     </div>
                 </div>
             </div>
