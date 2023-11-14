@@ -43,11 +43,13 @@ export const sortProducts = (products, sortOption) => {
 };
 
 export function calculateOrderTotal(items) {
-  return items.reduce((total, item) => {
+  const total = items.reduce((acc, item) => {
     const price = item.discont_price || item.price;
     const itemTotal = price * item.quantity;
-    return total + itemTotal;
+    return acc + itemTotal;
   }, 0);
+
+  return parseFloat(total.toFixed(2));
 }
 
 export const calculateCartCount = (cartItems) => {

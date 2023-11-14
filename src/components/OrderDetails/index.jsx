@@ -25,6 +25,7 @@ function OrderDetails () {
         setIsModalOpen(false);
         dispatch(resetOrderStatus());
         dispatch(resetCart());
+        localStorage.setItem('cart', JSON.stringify([]));
     };
 
     const onSubmit = (data) => {

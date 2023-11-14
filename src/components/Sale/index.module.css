@@ -1,11 +1,15 @@
 .sale_section {
     background-color: #A1E2EB;
+    max-width: 1920px;
+    margin: 0 auto;
 }
 .sale_wrapper {
     width: 96%;
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
+    flex-wrap: wrap;
+    align-items: center;
 }
 .sale_title {
     margin-top: 200px;

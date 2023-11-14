@@ -35,7 +35,9 @@ function NavMenu({catalogRef, setIsCatalogClick}) {
         <nav>
             <div className={styles.nav_wrapper}>
                 <div className={styles.icon_container}>
-                    <img id="anchor" src={mainIcon} alt='main icon'/>
+                    <Link to='/'>
+                        <img id="anchor" src={mainIcon} alt='main icon'/>
+                    </Link>
                     <Link to='/'>
                     <Button 
                         style={{background: '#393', borderRadius: '5px'}} 

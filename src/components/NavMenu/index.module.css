@@ -1,5 +1,7 @@
 nav {
     margin: 20px 0 75px;
+    max-width: 1920px;
+    margin: 0 auto;
 }
 .nav_wrapper {
     width: 96%;

@@ -27,6 +27,10 @@ function InputPriceSelection({
         type="number"
         value={minPrice}
         onChange={handleMinPrice}
+        inputProps={{
+          inputMode: "numeric",
+          pattern: "[0-9]*",
+        }}
       />
       <TextField
         sx={{width:"100px", marginRight:"40px"}}

@@ -19,8 +19,7 @@ function SingleProductCard ({id, title, image, discont_price, price, description
         setIsSnackbarOpen(false);
       };
 
-    const handleAddToCart = (event) => {
-        // event.stopPropagation();
+    const handleAddToCart = () => {
         const cartItem = cartItems.find((item) => item.id === id);
         if (cartItem) {
           dispatch(updateCartItemQuantity({ id, quantity: cartItem.quantity + 1 }));
@@ -66,7 +65,7 @@ function SingleProductCard ({id, title, image, discont_price, price, description
                 autoHideDuration={3000} 
                 onClose={handleCloseSnackbar}
                 >
-                <Alert onClose={handleCloseSnackbar} severity="success" sx={{ width: '300px' }}>
+                <Alert onClose={handleCloseSnackbar} severity="success" sx={{ width: '25vw' }}>
                     Product added to cart!
                 </Alert>
             </Snackbar>

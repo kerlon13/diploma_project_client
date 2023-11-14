@@ -24,8 +24,19 @@ export default function CategoriesSlider() {
             pagination={{
             clickable: true,
             }}
+            breakpoints={{
+                768: {
+                  slidesPerView: 2,
+                  spaceBetween: 20,
+                },
+                1024: {
+                    slidesPerView: 4,
+                    spaceBetween: 20,
+                  }
+              }}
             modules={[Grid, Pagination]}
             className="mySwiper"
+            
         >
             {status !== 'loading' ? (
                 categoriesData.map((category) => (
