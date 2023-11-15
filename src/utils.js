@@ -6,6 +6,8 @@ import notAPageImg from './assets/images/error404.svg';
 import plusIcon from './assets/icons/plusIcon.svg';
 import minusIcon from './assets/icons/minusIcon.svg';
 import closeIcon from './assets/icons/closeIcon.svg';
+import { setMinPrice, setMaxPrice } from './core/redux/store/slices/productsSlice';
+import { useDispatch } from 'react-redux';
 
 export {instagramIcon, whatsappIcon, mapImg, minusIcon, plusIcon, closeIcon};
 export const BASE_URL = "http://localhost:3333";

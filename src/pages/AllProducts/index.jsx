@@ -31,11 +31,17 @@ function AllProducts() {
   };
 
   const handleMinPrice = (event) => {
-    dispatch(setMinPrice(event.target.value));
+    const newValue = event.target.value;
+    if ( newValue >= 0) {
+      dispatch(setMinPrice(newValue));
+    }
   }
   
   const handleMaxPrice = (event) => {
-    dispatch(setMaxPrice(event.target.value));
+    const newValue = event.target.value;
+    if ( newValue >= 0) {
+      dispatch(setMaxPrice(newValue));
+    }
   }
   
   const handleSortChange = (newSortOption) => {
