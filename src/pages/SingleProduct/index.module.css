@@ -1,4 +1,6 @@
 .singleProduct_wrapper {
     width: 96%;
     margin: 0 auto;
+    max-width: 1920px;
+    margin-top: 130px;
 }

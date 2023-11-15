@@ -43,20 +43,29 @@ function AllProducts() {
   };
 
   useEffect(() => {
-    const filteredProducts = minPrice ? productsData.filter((product) => {
-        const price = parseFloat(product.price);
+    const filteredProducts = productsData.filter((product) => {
+      const price = parseFloat(product.price);
+  
+      if (minPrice && maxPrice) {
         return price >= minPrice && price <= maxPrice;
-    }) : productsData;
-
+      } else if (minPrice) {
+        return price >= minPrice;
+      } else if (maxPrice) {
+        return price <= maxPrice;
+      }
+  
+      return true;
+    });
+  
     let sortedProducts = sortProducts(filteredProducts, sortOption);
-
+  
     if (discount) {
-      sortedProducts = sortedProducts.filter((product) => product.discont_price !== null);
+      sortedProducts = sortedProducts.filter((product) => product.discount_price !== null);
     }
-
+  
     setSortedData(sortedProducts);
   }, [sortOption, discount, productsData, minPrice, maxPrice]);
-
+  
   return (
     <div className={styles.products_wrapper}>
       <h3>All products</h3>

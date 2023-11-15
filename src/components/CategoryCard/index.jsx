@@ -15,7 +15,7 @@ function CategoryCard ({id, title, image}) {
                         alt={title}
                         sx={{height: "35vh", objectFit: "cover"}}
                     />
-                    <CardContent>
+                    <CardContent style={{fontSize:"1.5rem", fontWeight: "bold"}}>
                         {title}
                     </CardContent>
                 </CardActionArea>

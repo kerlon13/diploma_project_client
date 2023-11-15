@@ -50,12 +50,18 @@ function SingleCategory() {
 
     useEffect(() => {
         if (singleCategoryData.data) {
-        const filteredProducts = minPrice
-            ? singleCategoryData.data.filter((product) => {
+        const filteredProducts = singleCategoryData.data.filter((product) => {
                 const price = parseFloat(product.price);
-                return price >= minPrice && price <= maxPrice;
-            })
-            : singleCategoryData.data;
+                if (minPrice && maxPrice) {
+                    return price >= minPrice && price <= maxPrice;
+                  } else if (minPrice) {
+                    return price >= minPrice;
+                  } else if (maxPrice) {
+                    return price <= maxPrice;
+                  }
+              
+                  return true;
+            });
     
         let sortedProducts = sortProducts(filteredProducts, sortOption);
     

@@ -19,7 +19,7 @@ function ProductCard({ id, discont_price, image, price, title }) {
       MuiCardMedia: {
         styleOverrides: {
           root: {
-            height: '50vh',
+            height: '35vh',
             objectFit: 'cover',
           },
         },

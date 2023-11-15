@@ -17,8 +17,7 @@ nav {
     align-items: center;
 }
 .links_container {
-    /* width: 39%; */
-    width: 40vw;
+    width: 39%;
     display: flex;
     justify-content: space-between;
 }
@@ -29,7 +28,7 @@ nav {
 }
 .link {
     color: #000;
-    font-size: 16px;
+    font-size: 18px;
     font-style: normal;
     font-weight: 500;
     text-decoration: none;
