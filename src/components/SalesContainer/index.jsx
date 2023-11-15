@@ -10,10 +10,13 @@ function SalesContainer () {
         (product) => product.discont_price !== null
     );
 
+    const shuffledProducts = discountProducts.sort(() => Math.random() - 0.5);
+    const randomProducts = shuffledProducts.slice(0, 4);
+
     return (
         <div className={styles.sales_container}>
             {status !== 'loading' ? (
-                discountProducts.slice(0, 4).map((product) => (
+                randomProducts.slice(0, 4).map((product) => (
                     <ProductCard key={product.id} {...product} />
                 ))
             ) : (
@@ -30,3 +33,4 @@ function SalesContainer () {
 }
 
 export default SalesContainer;
+

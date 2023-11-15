@@ -3,7 +3,7 @@ import CategoryCard from "../CategoryCard";
 import styles from './index.module.css';
 import { Skeleton } from "@mui/material";
 
-function CategoriesContainer ({isAllCategories}) {
+function CategoriesContainer () {
     const { categoriesData, status } = useSelector((state) => state.categories);
 
     return (

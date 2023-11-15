@@ -1,7 +1,5 @@
 import { Button } from '@mui/material';
 import styles from './index.module.css';
-import CategoriesContainer from '../CategoriesContainer';
-import { useRef } from 'react';
 import { Link } from 'react-router-dom';
 import CategoriesSlider from '../CategoriesSlider';
 

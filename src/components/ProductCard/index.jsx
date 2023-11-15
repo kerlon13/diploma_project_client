@@ -1,4 +1,4 @@
-import { Alert, Button, Card, CardActionArea, CardContent, CardMedia, Snackbar, ThemeProvider, createTheme } from "@mui/material";
+import { Alert, Button, Card, CardActionArea, CardContent, CardMedia, Snackbar } from "@mui/material";
 import { BASE_URL } from "../../utils";
 import styles from "./index.module.css";
 import { useEffect, useState } from "react";
@@ -13,19 +13,6 @@ function ProductCard({ id, discont_price, image, price, title }) {
   const cartItems = useSelector((state) => state.cart);
   const [isSnackbarOpen, setIsSnackbarOpen] = useState(false);
   const navigate = useNavigate(); 
-
-  const theme = createTheme({
-    components: {
-      MuiCardMedia: {
-        styleOverrides: {
-          root: {
-            height: '35vh',
-            objectFit: 'cover',
-          },
-        },
-      },
-    },
-  });
 
   const handleOpenSnackbar = () => {
     setIsSnackbarOpen(true);
@@ -63,14 +50,13 @@ function ProductCard({ id, discont_price, image, price, title }) {
         sx={{ height: "100%", position: "relative" }}
       >
         <CardActionArea>
-          <ThemeProvider theme={theme}>
+          
           <CardMedia
             component="img"
             image={url}
             alt={title}
-            //style={{ width: "100%", height: "40vh", objectFit: "cover" }}
+            style={{ width: "100%", height: "35vh", objectFit: "cover" }}
           />
-          </ThemeProvider>
           <CardContent>
             <div className={styles.price_container}>
               <p className={styles.discount_price}>{discont_price ? discont_price : price}$</p>
