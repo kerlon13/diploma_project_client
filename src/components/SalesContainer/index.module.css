@@ -2,6 +2,7 @@
     display: grid;
     justify-content: space-between;
     grid-template-columns: repeat(4, 23%);
+    margin-bottom: 50px;
 }
 @media (max-width: 1444px) {
     .sales_container {

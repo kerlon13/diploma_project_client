@@ -3,12 +3,6 @@
     margin: 0 auto;
     padding: 50px 0;
 }
-.map_image {
-    width: 100%; 
-    height: auto; 
-    display: block; 
-    margin: 0 auto;
-}
 .contacts_wrapper {
     display: flex;
     margin-bottom: 45px;
@@ -17,7 +11,7 @@
     width: 60%;
 }
 .footer_titel {
-    font-size: 40px;
+    font-size: 2.5rem;
     font-weight: bold;
     margin-bottom: 25px;
 }
@@ -27,15 +21,15 @@
     margin-bottom: 25px;
 }
 .address {
-    font-size: 40px;
+    font-size: 2.5rem;
     font-weight: bold;
     margin-bottom: 20px;
 }
 .working_hours {
-    font-size: 18px;
+    font-size: 1.2rem;
 }
 .text {
-    font-size: 24px;
+    font-size: 1.5rem;
     font-weight: bold;
 }
 
@@ -50,6 +44,43 @@
     align-items: center;
 }
 .link_title {
-    font-size: 15px;
+    font-size: 1rem;
     font-weight: bold;
+}
+@media (max-width: 1444px) {
+    .phone_number {
+        font-size: 2.8rem ;
+    }
+    .address {
+        font-size: 1.8rem;
+    }
+    .links_container {
+        width: 40%;
+    }
+}
+@media (max-width: 1444px) {
+    .phone_number {
+        font-size: 2.2rem ;
+    }
+    .address {
+        font-size: 1.2rem;
+    }
+    .links_container {
+        width: 50%;
+    }
+}
+@media (max-width: 768px) {
+    .contacts_wrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    .links_container {
+        margin: 0 auto;
+        width: 80%;
+    }
+    .phone_number {
+        font-size: 1.6rem ;
+    }
 }

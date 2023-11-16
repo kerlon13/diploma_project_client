@@ -5,7 +5,7 @@ import { Skeleton } from "@mui/material";
 function ProductsContainer ({products, status}) {
 
     return (
-        <div className={styles.products_container}>    
+        // <div className={styles.products_container}>    
             <div className={styles.products_wrapper}>
                 {status !== 'loading' && products ? (
                     products.map((product) => (
@@ -20,7 +20,7 @@ function ProductsContainer ({products, status}) {
                     )) 
                 )}
             </div>
-        </div>
+        // </div>
     )
 }
 
