@@ -25,14 +25,21 @@ export default function CategoriesSlider() {
             clickable: true,
             }}
             breakpoints={{
-                768: {
-                  slidesPerView: 2,
-                  spaceBetween: 20,
+                100: {
+                    slidesPerView: 1,
+                },
+                401: {
+                    slidesPerView: 2,
+                    spaceBetween: 20
                 },
                 1024: {
-                    slidesPerView: 4,
+                    slidesPerView: 3,
                     spaceBetween: 20,
-                  }
+                },
+                1444: {
+                  slidesPerView: 4,
+                  spaceBetween: 20,
+                },
               }}
             modules={[Grid, Pagination]}
             className="mySwiper"

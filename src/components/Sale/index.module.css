@@ -7,21 +7,40 @@
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
-    flex-wrap: wrap;
-    align-items: center;
 }
 .sale_title {
-    margin-top: 200px;
+    margin-top: 15vh;
     color: #FFF;
-    font-size: 80px;
+    font-size: 4.5rem;
     font-style: normal;
     font-weight: 700;
 }
 .sale_text {
     margin-top: 20px;
     color: #FFF;
-    font-size: 63px;
+    font-size: 3.5rem;
     font-style: normal;
     font-weight: 700;
     margin-bottom: 60px;
+}
+.img_container {
+    max-width: 100%;
+}
+.sale_img {
+    width: 100%;
+    object-fit: cover;
+}
+@media (max-width: 1024px) {
+    .sale_wrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center; 
+    }
+    .sale_title {
+        margin-bottom: 20px;
+    }
+    .sale_text {
+        margin-bottom: 15px;
+    }
 }

@@ -26,10 +26,66 @@ nav {
 }
 .link {
     color: #000;
-    font-size: 18px;
+    font-size: 1.125em;
     font-style: normal;
     font-weight: 500;
     text-decoration: none;
+}
+
+@media (max-width: 1444px) {
+    .icon_container {
+        width: 25%; 
+    }
+    .link {
+        font-size: 1em;
+    }
+    .links_container {
+        width: 44%;
+    }
+}
+@media (max-width: 1024px) {
+    .icon_container {
+        width: 27%; 
+    }
+    .links_container {
+        width: 55%;
+    }
+}
+.burger_icon {
+    display: none; 
+    cursor: pointer;
+}
+  
+.mobile_menu {
+    display: none;
+    width: 25%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+@media (max-width: 768px) {
+    .link {
+        font-size: 0.9em;
+    }
+    .links_of_pages {
+        display: none;
+    }
+    .burger_icon {
+        display: block; 
+    }
+    .mobile_menu {
+        display: flex;
+        flex-direction: column;
+    }
+    .links_container {
+        width: 5%;
+    }
+    .icon_container {
+        width: 5%;
+    }
+    nav {
+        margin-bottom: 15px;
+    }
 }
 
 

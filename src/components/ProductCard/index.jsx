@@ -69,7 +69,7 @@ function ProductCard({ id, discont_price, image, price, title }) {
           </CardContent>
         </CardActionArea>
         {isHovered && (
-          <div className={styles.addToCartContainer} style={{ position: "absolute", top: "50%", left: "50%", transform: "translate(-50%, -50%)" }}>
+          <div className={styles.addToCartContainer}>
             <Button
               variant="contained"
               color="primary"

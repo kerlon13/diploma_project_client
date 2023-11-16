@@ -4,42 +4,38 @@
 }
 .discount_wrapper {
     display: flex;
-    padding: 27px 90px;
+    padding: 5% 12%;
 }
 .img_container {
     width: 50%;
 }
 .discount_title {
     color: white;
-    font-size: 90px;
+    font-size: 6rem;
 }
 .discount_text {
     color: white;
-    font-size: 50px;
+    font-size: 3rem;
     margin-bottom: 45px;
-}
-.phone_input {
-    width: 400px;
-    font-size: 20px;
 }
 .phone_input {
     background: #FFF;
     width: 100%;
     border-radius: 25px;
     border: none;
-    height: 75px;
+    height: 4.5rem;
     margin-bottom: 30px;
     padding: 20px;
     color: #6C6C6C;
-    font-size: 20px;
+    font-size: 1.5rem;
 }
 .submit_button {
     width: 100%;
     border-radius: 25px;
     border: 2px solid white;
-    height: 75px;
+    height: 4.5rem;
     padding: 10px;
-    font-size: 28px;
+    font-size: 2rem;
     background-color: rgba(51, 153, 51, 1);
     color: white;
     cursor: pointer;
@@ -47,10 +43,28 @@
 .error_message {
     color: red;
     font-weight: bold;
-    font-size: 20px;
+    font-size: 1.2rem;
     margin-bottom: 10px;
 }
 .phone_input:focus {
     outline: none;
+}
+.img_discount {
+    width: 100%;
+}
+@media (max-width: 1024px) {
+    .discount_wrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    } 
+}
+@media (max-width: 768px) {
+    .discount_title {
+        font-size: 4rem;
+    }
+    .discount_text {
+        font-size: 2rem;
+    }
 }
 

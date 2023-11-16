@@ -1,7 +1,7 @@
 .catalog_wrapper {
     width: 96%;
     margin: 0 auto;
-    padding: 40px 0 110px 0;
+    padding: 5% 0 10% 0;
 }
 .catalog_btn_container {
     display: flex;
@@ -11,5 +11,20 @@
     width: 30%;
 }
 h3 {
-    font-size: 40px;
+    font-size: 2.5rem;
+}
+@media (max-width: 1444px) {
+    .catalog_btn_container {
+        width: 40%;
+    }
+}
+@media (max-width: 1024px) {
+    .catalog_btn_container {
+        width: 55%;
+    } 
+}
+@media (max-width: 768px) {
+    .catalog_btn_container {
+        width: 100%;
+    } 
 }

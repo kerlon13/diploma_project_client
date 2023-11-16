@@ -40,7 +40,7 @@ function Discount ({saleRef}) {
         <section className={styles.discount}>
             <div className={styles.discount_wrapper} ref={saleRef}>
                 <div className={styles.img_container}>
-                    <img src={discountImg} alt='Discount image'/>
+                    <img src={discountImg} alt='Discount image' className={styles.img_discount}/>
                 </div>
                 <div>
                     <h3 className={styles.discount_title}>5% off</h3>
