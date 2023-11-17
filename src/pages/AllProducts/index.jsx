@@ -66,12 +66,12 @@ function AllProducts() {
     let sortedProducts = sortProducts(filteredProducts, sortOption);
   
     if (discount) {
-      sortedProducts = sortedProducts.filter((product) => product.discount_price !== null);
+      sortedProducts = sortedProducts.filter((product) => product.discont_price !== null);
     }
   
     setSortedData(sortedProducts);
   }, [sortOption, discount, productsData, minPrice, maxPrice]);
-  
+
   return (
     <div className={styles.products_wrapper}>
       <h3>All products</h3>
