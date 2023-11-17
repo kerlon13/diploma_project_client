@@ -18,7 +18,8 @@
 }
 @media (max-width: 768px) {
     .sales_container {
-        grid-template-columns: repeat(1, 100%);
+        grid-template-columns: repeat(1, 80%);
         grid-gap: 2%;
+        justify-content: center;
     }
 }
