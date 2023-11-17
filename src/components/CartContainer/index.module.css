@@ -1,3 +1,25 @@
 .cart_container {
-    width: 100%;
+    width: 65%;
+}
+.empty_cart {
+    max-width: 65%;
+    max-height: 400px;
+}
+@media (max-width: 1444px) {
+    .empty_cart {
+        width: 60%;
+    }
+    .cart_container {
+        width: 60%;
+    }
+}
+@media (max-width: 1024px) {
+    .cart_container {
+        width: 100%;
+    }
+}
+@media (max-width: 768px) {
+    .empty_cart {
+        width: 80%;
+    }
 }

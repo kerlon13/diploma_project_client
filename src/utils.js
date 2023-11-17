@@ -6,10 +6,9 @@ import notAPageImg from './assets/images/error404.svg';
 import plusIcon from './assets/icons/plusIcon.svg';
 import minusIcon from './assets/icons/minusIcon.svg';
 import closeIcon from './assets/icons/closeIcon.svg';
-import { setMinPrice, setMaxPrice } from './core/redux/store/slices/productsSlice';
-import { useDispatch } from 'react-redux';
+import emptyCartIcon from './assets/icons/emptyCart.svg'
 
-export {instagramIcon, whatsappIcon, mapImg, minusIcon, plusIcon, closeIcon};
+export {instagramIcon, whatsappIcon, mapImg, minusIcon, plusIcon, closeIcon, emptyCartIcon};
 export const BASE_URL = "http://localhost:3333";
 export default discountImg;
 export {notAPageImg};

@@ -52,7 +52,7 @@ function NavMenu({catalogRef, setIsCatalogClick}) {
                     {isSmallScreen ? null : (
                         <Button
                             className={styles.catalog_btn} 
-                            style={{background: '#393', borderRadius: '5px', width: "10vw"}} 
+                            style={{background: '#393', borderRadius: '5px', maxWidth: "250px"}} 
                             variant='contained'
                             onClick={scrollToCatalog}
                         >

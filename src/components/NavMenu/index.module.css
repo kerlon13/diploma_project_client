@@ -78,10 +78,10 @@ nav {
         flex-direction: column;
     }
     .links_container {
-        width: 5%;
+        width: 10%;
     }
     .icon_container {
-        width: 5%;
+        width: 10%;
     }
     nav {
         margin-bottom: 15px;

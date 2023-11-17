@@ -2,32 +2,29 @@
     width: 30%;
     border: 2px solid black;
     border-radius: 20px;
-    max-height: 450px;
+    max-height: 400px;
     padding: 25px;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 .order_title {
-    font-size: 28px;
+    font-size: 1.8rem;
     font-weight: bold;
-    margin-bottom: 45px;
+    margin-bottom: 9%;
 }
 .total_container {
     width: 100%;
     display: flex;
     justify-content: space-between;
-    margin-bottom: 50px;
+    margin-bottom: 10%;
 }
 .total_text {
-    font-size: 24px;
+    font-size: 1.5rem;
 }
 .total_amount {
-    font-size: 32px;
+    font-size: 2rem;
     font-weight: bold;
-}.phone_input {
-    border: 1px solid black;
-    border-radius: 20px;
 }
 .phone_input {
     width: 100%;
@@ -37,14 +34,29 @@
     padding: 25px;
     max-height: 75px;
     color: #929292;
-    font-size: 20px;
+    font-size: 1.2rem;
+    margin-bottom: 5%;
 }
 .error_message {
     color: red;
     font-weight: bold;
-    font-size: 20px;
-    margin-bottom: 10px;
+    font-size: 1rem;
 }
 .phone_input:focus {
     outline: none;
+}
+@media (max-width: 1444px) {
+    .order_details_container {
+        width: 35%;
+    }
+}
+@media (max-width: 1024px) {
+    .order_details_container {
+        width: 45%;
+    }
+}
+@media (max-width: 768px) {
+    .order_details_container {
+        width: 80%;
+    }
 }

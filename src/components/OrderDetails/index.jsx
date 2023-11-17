@@ -12,7 +12,7 @@ function OrderDetails () {
     const cartItems = useSelector((state) => state.cart);
     const dispatch = useDispatch();
     const orderStatus = useSelector((state) => state.order.status);
-    const { register, handleSubmit,control, formState: { errors }, reset } = useForm({
+    const { handleSubmit,control, formState: { errors }, reset } = useForm({
         mode:"onChange",
         defaultValues: {
             phone: ""
@@ -87,7 +87,7 @@ function OrderDetails () {
                 ) : (
                 <Button
                     type='submit'
-                    style={{background: '#393', borderRadius: '5px', marginTop:"25px", width: "100%", height: "75px", borderRadius :"17px", fontSize: "28px"}} 
+                    style={{background: '#393', borderRadius: '5px', width: "100%", maxHeight: "75px", borderRadius :"17px", fontSize: "1.8rem"}} 
                     variant='contained'
                 >
                     Order
