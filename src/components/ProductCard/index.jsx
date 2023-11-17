@@ -50,7 +50,6 @@ function ProductCard({ id, discont_price, image, price, title }) {
         sx={{ height: "100%", position: "relative" }}
       >
         <CardActionArea>
-          
           <CardMedia
             component="img"
             image={url}
@@ -73,7 +72,7 @@ function ProductCard({ id, discont_price, image, price, title }) {
             <Button
               variant="contained"
               color="primary"
-              style={{ borderRadius: "21px", border: "2px solid #393", background: "#F1FFF1", color: "rgba(51, 153, 51, 1)", height:"8vh", width:"15vw" }}
+              style={{ borderRadius: "21px", border: "2px solid #393", background: "#F1FFF1", color: "rgba(51, 153, 51, 1)", height:"8vh", width:"100%" }}
               onClick={handleAddToCart}
             >
               Add to cart

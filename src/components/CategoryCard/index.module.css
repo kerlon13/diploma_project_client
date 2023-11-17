@@ -1,0 +1,21 @@
+.link_container {
+    width: 23%;
+    text-decoration: none;
+    margin-bottom: 50px;
+}
+@media (max-width: 1444px) {
+    .link_container {
+        width: 31%;
+    }
+}
+@media (max-width: 1024px) {
+    .link_container {
+        width: 45%;
+    }
+}
+@media (max-width: 768px) {
+    .link_container {
+        width: 80%;
+        margin: 0 auto;
+    }
+}

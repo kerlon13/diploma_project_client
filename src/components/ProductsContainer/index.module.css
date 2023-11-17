@@ -16,6 +16,7 @@
 }
 @media (max-width: 768px) {
     .products_wrapper {
-        grid-template-columns: repeat(1, 100%);
+        grid-template-columns: repeat(1, 80%);
+        justify-content: center;
     }
 }
