@@ -45,7 +45,7 @@ function Discount ({saleRef}) {
                 <div>
                     <h3 className={styles.discount_title}>5% off</h3>
                     <p className={styles.discount_text}>on the first order</p>
-                    <form className={styles.registration_form} onSubmit={handleSubmit(onSubmit)}>
+                    <form className={styles.registration_form} onSubmit={handleSubmit(onSubmit)} >
                         <div>
                             <Controller
                                 name="phone"

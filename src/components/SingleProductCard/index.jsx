@@ -48,7 +48,7 @@ function SingleProductCard ({id, title, image, discont_price, price, description
                         {discont_price ? <p className={styles.amount_sale}>- {Math.round(100 - discont_price / price * 100)} %</p> : null}
                     </div>
                     <Button 
-                        style={{background: '#393', borderRadius: '5px', marginBottom:'40px', width: '70%', height: '70px'}} 
+                        style={{background: '#393', borderRadius: '5px', marginBottom:'40px', width: '70%', maxHeight: '70px', fontSize: "1.8rem"}} 
                         variant='contained'
                         onClick={handleAddToCart}
                     >

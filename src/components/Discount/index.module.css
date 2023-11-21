@@ -46,12 +46,16 @@
     font-size: 1.2rem;
     margin-bottom: 10px;
 }
+.registration_form {
+    width: 100%;
+}
 .phone_input:focus {
     outline: none;
 }
 .img_discount {
     width: 100%;
 }
+
 @media (max-width: 1024px) {
     .discount_wrapper {
         display: flex;

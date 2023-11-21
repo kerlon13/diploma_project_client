@@ -53,7 +53,7 @@ function OrderDetails () {
                 <p className={styles.total_text}>Total</p>
                 <p className={styles.total_amount}>{calculateOrderTotal(cartItems)}</p>
             </div>
-            <form onSubmit={handleSubmit(onSubmit)}>
+            <form onSubmit={handleSubmit(onSubmit)} style={{width: '100%'}}>
                 <Controller
                     name="phone"
                     control={control}
