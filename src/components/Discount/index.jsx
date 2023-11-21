@@ -7,7 +7,7 @@ import InputMask from 'react-input-mask';
 import { useState } from 'react';
 import { resetSaleStatus } from '../../core/redux/store/slices/saleSlice';
 import { useEffect } from 'react';
-import { Box, Button, Modal, Typography } from '@mui/material';
+import ModalWindow from '../ModalWindow';
 
 function Discount ({saleRef}) {
     const { register,control, handleSubmit, formState: { errors }, reset } = useForm({
@@ -81,23 +81,11 @@ function Discount ({saleRef}) {
                     </form>
                 </div>
             </div>
-            <Modal open={isModalOpen} onClose={handleCloseModal} style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                <Box p={3} bgcolor="white" borderRadius={4}>
-                <Typography variant="h5" gutterBottom>
-                    Discount Confirmation
-                </Typography>
-                <Typography variant="body1">
-                    Discount request has been sent successfully!
-                </Typography>
-                <Button 
-                    variant="contained" 
-                    onClick={handleCloseModal}
-                    style={{background: '#393', borderRadius: '5px', marginTop:"25px", width: "100%"}} 
-                >
-                    Close
-                </Button>
-                </Box>
-            </Modal> 
+            <ModalWindow
+                message={"Discount request has been sent successfully!"}
+                isModalOpen={isModalOpen}
+                handleCloseModal={handleCloseModal}
+            />
         </section>
     )
 };

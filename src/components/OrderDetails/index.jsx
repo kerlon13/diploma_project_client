@@ -2,11 +2,12 @@ import { useDispatch, useSelector } from 'react-redux';
 import styles from './index.module.css';
 import { calculateOrderTotal } from '../../utils';
 import { useForm, Controller } from 'react-hook-form';
-import { Box, Button,CircularProgress,Modal, Typography } from '@mui/material';
+import { Button,CircularProgress } from '@mui/material';
 import { useEffect, useState } from 'react';
 import { sendOrder, resetOrderStatus } from '../../core/redux/store/slices/orderSlice';
 import { resetCart } from '../../core/redux/store/slices/cartSlice';
 import InputMask from 'react-input-mask';
+import ModalWindow from '../ModalWindow';
 
 function OrderDetails () {
     const cartItems = useSelector((state) => state.cart);
@@ -94,23 +95,11 @@ function OrderDetails () {
                 </Button>
                 )}
             </form>
-            <Modal open={isModalOpen} onClose={handleCloseModal} style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                <Box p={3} bgcolor="white" borderRadius={4}>
-                <Typography variant="h5" gutterBottom>
-                    Order Confirmation
-                </Typography>
-                <Typography variant="body1">
-                    Your order has been successfully sent!
-                </Typography>
-                <Button 
-                    variant="contained" 
-                    onClick={handleCloseModal}
-                    style={{background: '#393', borderRadius: '5px', marginTop:"25px", width: "100%"}} 
-                >
-                    Close
-                </Button>
-                </Box>
-            </Modal> 
+            <ModalWindow
+                message={"Your order has been successfully sent!"}
+                isModalOpen={isModalOpen}
+                handleCloseModal={handleCloseModal}
+            />
         </div>
  )
 };

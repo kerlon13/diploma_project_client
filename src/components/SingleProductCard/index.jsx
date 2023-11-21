@@ -1,9 +1,10 @@
-import { Alert, Button, Snackbar } from "@mui/material";
+import { Button} from "@mui/material";
 import { BASE_URL } from "../../utils";
 import styles from './index.module.css';
 import { useDispatch, useSelector } from "react-redux";
 import { addToCart, updateCartItemQuantity } from "../../core/redux/store/slices/cartSlice";
 import { useEffect, useState } from "react";
+import SnackbarMessage from "../SnackbarMessage";
 
 function SingleProductCard ({id, title, image, discont_price, price, description}) {
     const url = `${BASE_URL}${image}`;
@@ -13,11 +14,11 @@ function SingleProductCard ({id, title, image, discont_price, price, description
 
     const handleOpenSnackbar = () => {
         setIsSnackbarOpen(true);
-      };
-    
-      const handleCloseSnackbar = () => {
+    };
+
+    const handleCloseSnackbar = () => {
         setIsSnackbarOpen(false);
-      };
+    };
 
     const handleAddToCart = () => {
         const cartItem = cartItems.find((item) => item.id === id);
@@ -37,7 +38,7 @@ function SingleProductCard ({id, title, image, discont_price, price, description
         <div>
             <h3 className={styles.product_title}>{title}</h3>
             <div className={styles.product_wrapper}>
-                <div className={styles.img_container}>
+                <div className={styles.img_container} >
                     <img src={url} alt={title} className={styles.product_img}/>
                 </div>
                 <div className={styles.description_container}>
@@ -59,16 +60,7 @@ function SingleProductCard ({id, title, image, discont_price, price, description
                     </div>
                 </div>
             </div>
-            <Snackbar
-                anchorOrigin={{ vertical: 'top', horizontal: 'right' }}
-                open={isSnackbarOpen}
-                autoHideDuration={3000} 
-                onClose={handleCloseSnackbar}
-                >
-                <Alert onClose={handleCloseSnackbar} severity="success" sx={{ width: '25vw' }}>
-                    Product added to cart!
-                </Alert>
-            </Snackbar>
+            <SnackbarMessage isSnackbarOpen={isSnackbarOpen} handleCloseSnackbar={handleCloseSnackbar}/>
         </div>
     )
 };

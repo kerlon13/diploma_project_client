@@ -5,7 +5,7 @@ import { closeIcon } from "../../utils";
 import { removeFromCart } from "../../core/redux/store/slices/cartSlice";
 import { useDispatch } from "react-redux";
 
-function CartProductCard ({id, title, price, discont_price, image, quantity}) {
+function CartProductCard ({id, title, price, discont_price, image}) {
     const url = `${BASE_URL}${image}`;
     const dispatch = useDispatch();
 

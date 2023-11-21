@@ -13,6 +13,7 @@
 .product_img {
     width: 100%; 
     height: auto;
+    border-radius: 10px;
 }
 .price_container {
     display: flex;
@@ -20,7 +21,6 @@
     align-items: center;
     margin-bottom: 40px;
 }
-
 .discount_price {
     font-size: 4.2rem;
     font-weight: bold;
@@ -49,6 +49,7 @@
 .description_text {
     font-size: 1.2rem;
 }
+
 @media (max-width: 1024px) {
     .product_wrapper {
         flex-direction: column;
