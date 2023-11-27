@@ -29,3 +29,18 @@
     transform:translate(-50%, -50%) ;
 }
 
+@media (max-width: 768px) {
+    .discount_price {
+        font-size: 1.3rem;
+    }
+    .price {
+        font-size: 1rem;
+    }
+    .amount_sale {
+        font-size: 1rem;
+    }
+    .description {
+        font-size: 0.8rem;
+    }
+}
+

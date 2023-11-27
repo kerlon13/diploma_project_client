@@ -1,22 +1,22 @@
 .products_wrapper {
     display: grid;
     justify-content: space-between;
-    grid-template-columns: repeat(4, 23%); 
+    grid-template-columns: repeat(4, 20%); 
     grid-gap: 30px;
 }
 @media (max-width: 1444px) {
     .products_wrapper {
-        grid-template-columns: repeat(3, 32%);
+        grid-template-columns: repeat(3, 25%);
     }
 }
 @media (max-width: 1024px) {
     .products_wrapper {
-        grid-template-columns: repeat(2, 46%);
+        grid-template-columns: repeat(2, 40%);
     }
 }
 @media (max-width: 768px) {
     .products_wrapper {
-        grid-template-columns: repeat(1, 80%);
+        grid-template-columns: repeat(1, 70%);
         justify-content: center;
     }
 }

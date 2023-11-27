@@ -8,7 +8,7 @@ function CategoryCard ({id, title, image}) {
 
     return (
         <Link to={`/${id}`} className={styles.link_container}>
-            <Card sx={{ height: "100%" }} >
+            <Card  >
                 <CardActionArea>
                     <CardMedia
                         component="img"

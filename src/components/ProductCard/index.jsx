@@ -48,16 +48,16 @@ function ProductCard({ id, discont_price, image, price, title }) {
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
         onClick={handleCardClick}
-        sx={{ height: "100%", position: "relative" }}
+        sx={{ position: "relative" }}
       >
-        <CardActionArea>
+        <CardActionArea sx={{height: "100%", display: "flex", flexDirection: "column", justifyContent:"space-between"}}>
           <CardMedia
             component="img"
             image={url}
             alt={title}
-            sx={{ height: "35vh", objectFit: "cover" }}
+            sx={{ objectFit: "cover" }}
           />
-          <CardContent>
+          <CardContent sx={{width: "100%"}}>
             <div className={styles.price_container}>
               <p className={styles.discount_price}>{discont_price ? discont_price : price}$</p>
               {discont_price ? <p className={styles.price}>{price}$</p> : null}

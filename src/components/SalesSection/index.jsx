@@ -1,9 +1,19 @@
-import SalesContainer from "../SalesContainer";
 import { Button } from '@mui/material';
 import styles from "./index.module.css";
 import { Link } from "react-router-dom";
+import ProductsContainer from "../ProductsContainer";
+import { useSelector } from "react-redux";
 
 function SalesSection () {
+    const { productsData, status } = useSelector((state) => state.products);
+    
+    const discountProducts = productsData.filter(
+        (product) => product.discont_price !== null
+    );
+
+    const shuffledProducts = discountProducts.sort(() => Math.random() - 0.5);
+    const randomProducts = shuffledProducts.slice(0, 4);
+
     return(
         <section>
             <div className={styles.sales_wrapper}>
@@ -18,7 +28,7 @@ function SalesSection () {
                         </Button>
                     </Link>
                 </div>
-                <SalesContainer />
+                <ProductsContainer status={status} products={randomProducts} />
             </div>
         </section>
     )

@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 import CategoriesSlider from '../CategoriesSlider';
 
 function Catalog ({catalogRef}) {
-    
     return(
         <section >
             <div className={styles.catalog_wrapper} ref={catalogRef}>
